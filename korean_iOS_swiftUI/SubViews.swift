@@ -9,12 +9,15 @@
 import SwiftUI
 
 struct squareButton: View {
+	var backgroundColor: Color?
+	var text: String?
+	var action: (() -> Void)?
 	var body: some View {
-		Button(action: {}) {
-			Text("Sino-Korean numbers")
+		Button(action: action ?? {}) {
+			Text(text ?? "Button")
 				.foregroundColor(.black)
 				.frame(width: 200, height: 100)
-				.background(Color.blue)
+				.background(backgroundColor ?? .blue)
 				.cornerRadius(10)
 				.shadow(radius: 3, x: 0, y: 3)
 		}
@@ -23,6 +26,6 @@ struct squareButton: View {
 
 struct SubViews_Previews: PreviewProvider {
     static var previews: some View {
-        squareButton()
+		squareButton()
     }
 }

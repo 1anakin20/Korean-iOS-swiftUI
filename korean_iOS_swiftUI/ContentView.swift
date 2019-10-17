@@ -13,8 +13,7 @@ struct ContentView: View {
 	
 	var body: some View {
 		TabView(selection: $selection){
-			Text("FirstView")
-				.font(.title)
+			playView()
 				.tabItem {
 					VStack {
 						Image(systemName: "play.fill")
