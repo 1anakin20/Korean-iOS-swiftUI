@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B39C63E3235D099A008D6376 /* korean_iOS_swiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = korean_iOS_swiftUI.entitlements; sourceTree = "<group>"; };
 		B3E351A923578B4500A3F4F6 /* korean_iOS_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korean_iOS_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		B3E351AB23578B4500A3F4F6 /* korean_iOS_swiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				B39C63E3235D099A008D6376 /* korean_iOS_swiftUI.entitlements */,
 				B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */,
 				B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */,
 				B3E351B023578B4500A3F4F6 /* ContentView.swift */,
@@ -446,7 +448,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = korean_iOS_swiftUI/korean_iOS_swiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"korean_iOS_swiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = J4ACLAX7WB;
 				ENABLE_PREVIEWS = YES;
@@ -457,6 +461,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "me.korean-iOS-swiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,7 +471,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = korean_iOS_swiftUI/korean_iOS_swiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"korean_iOS_swiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = J4ACLAX7WB;
 				ENABLE_PREVIEWS = YES;
@@ -477,6 +484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "me.korean-iOS-swiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
