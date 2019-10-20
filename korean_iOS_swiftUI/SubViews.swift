@@ -24,8 +24,24 @@ struct squareButton: View {
 	}
 }
 
+struct longButton: View {
+	var backgroundColor: Color?
+	var text: String?
+	var destination: AnyView?
+	var body: some View {
+		NavigationLink(destination: destination) {
+			Text(text ?? "Button")
+				.foregroundColor(.black)
+				.frame(width: 350, height: 70)
+				.background(backgroundColor ?? .purple)
+				.cornerRadius(10)
+				.shadow(radius: 3, x: 0, y: 3)
+		}
+	}
+}
+
 struct SubViews_Previews: PreviewProvider {
-    static var previews: some View {
-		squareButton()
-    }
+	static var previews: some View {
+		longButton()
+	}
 }

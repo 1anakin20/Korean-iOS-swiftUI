@@ -10,16 +10,14 @@ import SwiftUI
 
 struct playView: View {
 	var body: some View {
-		VStack(spacing: 30) {
-			squareButton(backgroundColor: .purple, text: "Sino-Korean numbers", action: LMAO)
-			squareButton(backgroundColor: .blue, text: "Native-Korean numbers")
-			squareButton(backgroundColor: .green, text: "Vocabulary")
+		NavigationView {
+			VStack(spacing: 30) {
+				squareButton(backgroundColor: .purple, text: "Sino-Korean numbers")
+				squareButton(backgroundColor: .blue, text: "Native-Korean numbers")
+				squareButton(backgroundColor: .green, text: "Vocabulary")
+			}
 		}
 	}
-}
-
-func LMAO() {
-	print("LMAO IT WORKED")
 }
 
 struct playView_Previews: PreviewProvider {
