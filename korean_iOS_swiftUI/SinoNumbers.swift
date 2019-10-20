@@ -10,10 +10,8 @@ import SwiftUI
 
 struct SinoNumbers: View {
 	var body: some View {
-		NavigationView {
-			VStack(spacing: 30) {
-				longNavigationLink(backgroundColor: .purple, text: "Korean to English")
-			}
+		VStack(spacing: 30) {
+			longNavigationLink(backgroundColor: .purple, text: "Korean to English")
 		}
 	}
 }
