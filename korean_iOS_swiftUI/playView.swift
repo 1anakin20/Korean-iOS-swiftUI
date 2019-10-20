@@ -12,9 +12,9 @@ struct playView: View {
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 30) {
-				squareButton(backgroundColor: .purple, text: "Sino-Korean numbers")
-				squareButton(backgroundColor: .blue, text: "Native-Korean numbers")
-				squareButton(backgroundColor: .green, text: "Vocabulary")
+				squareNavigationLink(backgroundColor: .purple, text: "Sino-Korean numbers", destination: AnyView(SinoNumbers()))
+				squareNavigationLink(backgroundColor: .blue, text: "Native-Korean numbers")
+				squareNavigationLink(backgroundColor: .green, text: "Vocabulary")
 			}
 		}
 	}

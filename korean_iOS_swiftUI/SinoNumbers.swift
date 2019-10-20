@@ -12,7 +12,7 @@ struct SinoNumbers: View {
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 30) {
-				longButton(backgroundColor: .purple, text: "Korean to English")
+				longNavigationLink(backgroundColor: .purple, text: "Korean to English")
 			}
 		}
 	}

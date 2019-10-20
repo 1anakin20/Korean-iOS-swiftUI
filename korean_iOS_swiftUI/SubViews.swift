@@ -5,15 +5,16 @@
 //  Created by Tomas Daniel Nieto on 2019-10-17.
 //  Copyright © 2019 Tomas Daniel Nieto. All rights reserved.
 //
+// This contains configurable views to be reused in the code
 
 import SwiftUI
 
-struct squareButton: View {
+struct squareNavigationLink: View {
 	var backgroundColor: Color?
 	var text: String?
-	var action: (() -> Void)?
+	var destination: AnyView?
 	var body: some View {
-		Button(action: action ?? {}) {
+		NavigationLink(destination: destination) {
 			Text(text ?? "Button")
 				.foregroundColor(.black)
 				.frame(width: 200, height: 100)
@@ -24,7 +25,7 @@ struct squareButton: View {
 	}
 }
 
-struct longButton: View {
+struct longNavigationLink: View {
 	var backgroundColor: Color?
 	var text: String?
 	var destination: AnyView?
@@ -42,6 +43,6 @@ struct longButton: View {
 
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
-		longButton()
+		longNavigationLink()
 	}
 }
