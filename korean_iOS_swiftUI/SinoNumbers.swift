@@ -26,10 +26,19 @@ struct SinoNumbers: View {
 }
 
 struct options: View {
+	@Environment(\.presentationMode) var presentationMode
 	@State var max: String = "100"
 	@State var min: String = "1"
+	
 	var body: some View {
 		VStack(spacing: 50) {
+			Button(action: {
+				print("dismisses form")
+				self.presentationMode.wrappedValue.dismiss()
+			}) {
+				Text("Done")
+			}
+			
 			HStack {
 				Text("Max")
 				Spacer()
