@@ -5,6 +5,7 @@
 //  Created by Tomas Daniel Nieto on 2019-10-16.
 //  Copyright © 2019 Tomas Daniel Nieto. All rights reserved.
 //
+/// This view will contain the TabView, it's the root view
 
 import SwiftUI
 

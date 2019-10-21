@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// This presents the navigation links for Korean to english and english to korean, it also shows an option button in the navigation bar to the option view
 struct SinoNumbers: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
@@ -25,6 +26,8 @@ struct SinoNumbers: View {
 	}
 }
 
+
+/// This option modal view will determine the max and min of the random numbers
 struct options: View {
 	@Environment(\.presentationMode) var presentationMode
 	@State var max: String = "100"

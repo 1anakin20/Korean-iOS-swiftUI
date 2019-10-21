@@ -9,6 +9,8 @@
 
 import SwiftUI
 
+
+/// A square navigation link, note that the destination parameter requires of type "AnyView". So cast the view to "AnyView". AnyView(view()).
 struct squareNavigationLink: View {
 	var backgroundColor: Color?
 	var text: String?
@@ -25,6 +27,7 @@ struct squareNavigationLink: View {
 	}
 }
 
+/// This is a rectangular navigation link, note that the destination parameter requires of type "AnyView". So cast the view to "AnyView". AnyView(view()).
 struct longNavigationLink: View {
 	var backgroundColor: Color?
 	var text: String?
