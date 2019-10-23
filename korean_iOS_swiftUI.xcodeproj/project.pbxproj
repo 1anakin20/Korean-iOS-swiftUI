@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
 		B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */; };
 		B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */; };
 		B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351B023578B4500A3F4F6 /* ContentView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		B39C63E3235D099A008D6376 /* korean_iOS_swiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = korean_iOS_swiftUI.entitlements; sourceTree = "<group>"; };
 		B3E351A923578B4500A3F4F6 /* korean_iOS_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korean_iOS_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B383912B235F70B1005EE147 /* Views code */ = {
+			isa = PBXGroup;
+			children = (
+				B383912C235F7131005EE147 /* SinoNumbers */,
+			);
+			path = "Views code";
+			sourceTree = "<group>";
+		};
+		B383912C235F7131005EE147 /* SinoNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				B383912D235F7154005EE147 /* options.swift */,
+			);
+			path = SinoNumbers;
+			sourceTree = "<group>";
+		};
 		B3E351A023578B4500A3F4F6 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +131,7 @@
 				B3E351DC2358D4AC00A3F4F6 /* playView.swift */,
 				B3E351E02358ED9700A3F4F6 /* SinoNumbers.swift */,
 				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
+				B383912B235F70B1005EE147 /* Views code */,
 				B3E351B223578B4700A3F4F6 /* Assets.xcassets */,
 				B3E351B723578B4700A3F4F6 /* LaunchScreen.storyboard */,
 				B3E351BA23578B4700A3F4F6 /* Info.plist */,
@@ -278,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B383912E235F7154005EE147 /* options.swift in Sources */,
 				B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */,
 				B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */,
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,

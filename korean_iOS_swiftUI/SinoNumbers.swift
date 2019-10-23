@@ -30,8 +30,12 @@ struct SinoNumbers: View {
 /// This option modal view will determine the max and min of the random numbers
 struct options: View {
 	@Environment(\.presentationMode) var presentationMode
-	@State var max: String = "100"
-	@State var min: String = "1"
+	@State var maximumNumber: String = "100"
+	@State var minimumNumber: String = "1"
+	
+	func passTextFieldValue() {
+		UserSettingsDefaults().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
+	}
 	
 	var body: some View {
 		VStack(spacing: 50) {
@@ -43,19 +47,20 @@ struct options: View {
 			}
 			
 			HStack {
-				Text("Max")
+				Text("Maximum number")
 				Spacer()
-				TextField("Max", text: $max)
+				TextField("Max", text: $maximumNumber)
 					.frame(width: 55)
 			}
 			HStack {
-				Text("Min")
+				Text("Minimum number")
 				Spacer()
-				TextField("Min", text: $min)
+				TextField("Minimum number", text: $minimumNumber)
 					.frame(width: 55)
 				
 			}
 		}
+		.textFieldStyle(RoundedBorderTextFieldStyle())
 		.multilineTextAlignment(.center)
 		.keyboardType(.numberPad)
 		.padding()
