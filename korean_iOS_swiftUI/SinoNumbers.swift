@@ -10,7 +10,7 @@ import SwiftUI
 
 /// This presents the navigation links for Korean to english and english to korean, it also shows an option button in the navigation bar to the option view
 struct SinoNumbers: View {
-	@State public var showOptions: Bool = false
+	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
 			longNavigationLink(backgroundColor: .purple, text: "Korean to English")
