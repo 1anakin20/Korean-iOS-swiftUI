@@ -29,9 +29,8 @@ struct SinoNumbers: View {
 
 /// This option modal view will determine the max and min of the random numbers
 struct options: View {
-	@Environment(\.presentationMode) var presentationMode
-	@State var maximumNumber: String = "100"
-	@State var minimumNumber: String = "1"
+	@State var maximumNumber: String = ""
+	@State var minimumNumber: String = ""
 	
 	func saveValues() {
 		UserSettingsDefaults().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
@@ -42,17 +41,13 @@ struct options: View {
 		minimumNumber = String(UserSettingsDefaults().checkMin())
 	}
 	
-	
 	var body: some View {
 		VStack(spacing: 50) {
 			Button(action: {
-				print("dismisses form")
-				self.presentationMode.wrappedValue.dismiss()
 				self.saveValues()
 			}) {
-				Text("Done")
+				Text("Save")
 			}
-			
 			HStack {
 				Text("Maximum number")
 				Spacer()
