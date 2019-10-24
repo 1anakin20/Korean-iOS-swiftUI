@@ -33,15 +33,22 @@ struct options: View {
 	@State var maximumNumber: String = "100"
 	@State var minimumNumber: String = "1"
 	
-	func passTextFieldValue() {
+	func saveValues() {
 		UserSettingsDefaults().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
 	}
+	
+	func setValues() {
+		maximumNumber = String(UserSettingsDefaults().checkMax())
+		minimumNumber = String(UserSettingsDefaults().checkMin())
+	}
+	
 	
 	var body: some View {
 		VStack(spacing: 50) {
 			Button(action: {
 				print("dismisses form")
 				self.presentationMode.wrappedValue.dismiss()
+				self.saveValues()
 			}) {
 				Text("Done")
 			}
@@ -57,8 +64,10 @@ struct options: View {
 				Spacer()
 				TextField("Minimum number", text: $minimumNumber)
 					.frame(width: 55)
-				
 			}
+		}
+		.onAppear {
+			self.setValues()
 		}
 		.textFieldStyle(RoundedBorderTextFieldStyle())
 		.multilineTextAlignment(.center)
