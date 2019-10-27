@@ -46,3 +46,47 @@ class UserSettingsDefaults: NSObject {
 		return intNumber
 	}
 }
+
+/// It will detect the first launch of the app
+final class FirstLaunch {
+	
+	let wasLaunchedBefore: Bool
+	var isFirstLaunch: Bool {
+		return !wasLaunchedBefore
+	}
+	
+	init(getWasLaunchedBefore: () -> Bool, setWasLaunchedBefore: (Bool) -> ()) {
+		let wasLaunchedBefore = getWasLaunchedBefore()
+		self.wasLaunchedBefore = wasLaunchedBefore
+		if !wasLaunchedBefore {
+			setWasLaunchedBefore(true)
+		}
+	}
+	
+	convenience init(userDefaults: UserDefaults, key: String) {
+		self.init(getWasLaunchedBefore: { userDefaults.bool(forKey: key) },
+				  setWasLaunchedBefore: { userDefaults.set($0, forKey: key) })
+	}
+}
+
+func firstLaunchDefaultValues() {
+	let userSettings = UserSettingsDefaults()
+	let firstLaunch = FirstLaunch(userDefaults: .standard, key: userSettings.wasLaunchedBefore)
+	if(firstLaunch.isFirstLaunch) {
+		let sinoMaxKey = UserSettingsDefaults().maxKey
+		let sinoMinKey = UserSettingsDefaults().minKey
+		// Set default values
+		UserSettingsDefaults().defaults.set(100, forKey: sinoMaxKey)
+		UserSettingsDefaults().defaults.set(1, forKey: sinoMinKey)
+		
+		// The native numbers have not yet been added
+		//			// Native numbers
+		//			let nativeUserSettings = NativeUserDefaults()
+		//			let nativeMaxKey = nativeUserSettings.nativeMaxKey
+		//			let nativeMinKey = nativeUserSettings.nativeMinKey
+		//			// Set default values
+		//			NativeUserDefaults().defaults.set(99, forKey: nativeMaxKey)
+		//			NativeUserDefaults().defaults.set(1, forKey: nativeMinKey)
+	}
+}
+
