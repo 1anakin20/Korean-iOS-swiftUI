@@ -76,7 +76,10 @@ struct koreanToEnglishNumbers: View {
 	@State var inputAnswer: String = ""
 	var body: some View {
 		VStack {
-			Image(systemName: "questionmark")
+			Image("Test1")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 200, height: 200)
 			HStack {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
@@ -85,6 +88,7 @@ struct koreanToEnglishNumbers: View {
 					Text("Accept")
 				}
 			}
+			.position(x: 190, y: 200)
 			.padding()
 		}
 	}
