@@ -72,8 +72,26 @@ struct options: View {
 	}
 }
 
+struct koreanToEnglishNumbers: View {
+	@State var inputAnswer: String = ""
+	var body: some View {
+		VStack {
+			Image(systemName: "questionmark")
+			HStack {
+				TextField("Answer", text: $inputAnswer)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.disableAutocorrection(true)
+				Button(action: {}) {
+					Text("Accept")
+				}
+			}
+			.padding()
+		}
+	}
+}
+
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		options()
+		koreanToEnglishNumbers()
 	}
 }
