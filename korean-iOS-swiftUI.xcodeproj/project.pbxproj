@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
+		B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */; };
 		B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */; };
 		B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */; };
 		B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351B023578B4500A3F4F6 /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
+		B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinoNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B39C63E3235D099A008D6376 /* korean_iOS_swiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = korean_iOS_swiftUI.entitlements; sourceTree = "<group>"; };
 		B3E351A923578B4500A3F4F6 /* korean_iOS_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korean_iOS_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		B383912C235F7131005EE147 /* SinoNumbers */ = {
 			isa = PBXGroup;
 			children = (
+				B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */,
 				B383912D235F7154005EE147 /* options.swift */,
 			);
 			path = SinoNumbers;
@@ -245,7 +248,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B3E351A423578B4500A3F4F6 /* Build configuration list for PBXProject "korean_iOS_swiftUI" */;
+			buildConfigurationList = B3E351A423578B4500A3F4F6 /* Build configuration list for PBXProject "korean-iOS-swiftUI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -303,6 +306,7 @@
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
+				B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */,
 				B3E351E12358ED9700A3F4F6 /* SinoNumbers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,7 +601,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3E351A423578B4500A3F4F6 /* Build configuration list for PBXProject "korean_iOS_swiftUI" */ = {
+		B3E351A423578B4500A3F4F6 /* Build configuration list for PBXProject "korean-iOS-swiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3E351D123578B4800A3F4F6 /* Debug */,

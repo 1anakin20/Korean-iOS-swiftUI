@@ -13,7 +13,7 @@ struct SinoNumbers: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Korean to English")
+			longNavigationLink(backgroundColor: .purple, text: "Korean to English", destination: AnyView(koreanToEnglishNumbers()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
@@ -72,8 +72,30 @@ struct options: View {
 	}
 }
 
+struct koreanToEnglishNumbers: View {
+	@State var inputAnswer: String = ""
+	var body: some View {
+		VStack {
+			Image("Test1")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 200, height: 200)
+			HStack {
+				TextField("Answer", text: $inputAnswer)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.disableAutocorrection(true)
+				Button(action: {}) {
+					Text("Accept")
+				}
+			}
+			.position(x: 190, y: 100)
+			.padding()
+		}
+	}
+}
+
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		options()
+		koreanToEnglishNumbers()
 	}
 }
