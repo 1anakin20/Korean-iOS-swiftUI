@@ -17,7 +17,7 @@
                BlueprintIdentifier = "B3E351A823578B4500A3F4F6"
                BuildableName = "korean_iOS_swiftUI.app"
                BlueprintName = "korean_iOS_swiftUI"
-               ReferencedContainer = "container:korean_iOS_swiftUI.xcodeproj">
+               ReferencedContainer = "container:korean-iOS-swiftUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "B3E351BE23578B4800A3F4F6"
                BuildableName = "korean_iOS_swiftUITests.xctest"
                BlueprintName = "korean_iOS_swiftUITests"
-               ReferencedContainer = "container:korean_iOS_swiftUI.xcodeproj">
+               ReferencedContainer = "container:korean-iOS-swiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "B3E351C923578B4800A3F4F6"
                BuildableName = "korean_iOS_swiftUIUITests.xctest"
                BlueprintName = "korean_iOS_swiftUIUITests"
-               ReferencedContainer = "container:korean_iOS_swiftUI.xcodeproj">
+               ReferencedContainer = "container:korean-iOS-swiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "B3E351A823578B4500A3F4F6"
             BuildableName = "korean_iOS_swiftUI.app"
             BlueprintName = "korean_iOS_swiftUI"
-            ReferencedContainer = "container:korean_iOS_swiftUI.xcodeproj">
+            ReferencedContainer = "container:korean-iOS-swiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,7 +84,7 @@
             BlueprintIdentifier = "B3E351A823578B4500A3F4F6"
             BuildableName = "korean_iOS_swiftUI.app"
             BlueprintName = "korean_iOS_swiftUI"
-            ReferencedContainer = "container:korean_iOS_swiftUI.xcodeproj">
+            ReferencedContainer = "container:korean-iOS-swiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -13,7 +13,7 @@ struct SinoNumbers: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Korean to English")
+			longNavigationLink(backgroundColor: .purple, text: "Korean to English", destination: AnyView(koreanToEnglishNumbers()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
@@ -80,7 +80,6 @@ struct koreanToEnglishNumbers: View {
 				.resizable()
 				.scaledToFit()
 				.frame(width: 200, height: 200)
-				.offset(y: 70)
 			HStack {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
@@ -89,7 +88,7 @@ struct koreanToEnglishNumbers: View {
 					Text("Accept")
 				}
 			}
-			.position(x: 190, y: 200)
+			.position(x: 190, y: 100)
 			.padding()
 		}
 	}
