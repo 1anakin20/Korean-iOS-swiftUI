@@ -80,6 +80,7 @@ struct koreanToEnglishNumbers: View {
 				.resizable()
 				.scaledToFit()
 				.frame(width: 200, height: 200)
+				.offset(y: 70)
 			HStack {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
