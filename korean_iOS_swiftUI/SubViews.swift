@@ -44,8 +44,46 @@ struct longNavigationLink: View {
 	}
 }
 
+/// This view shows a black button with the tittle accept
+/// This view will be shown for the user to accept the input
+struct acceptButton: View {
+	// Void function parameter
+	var action: (() -> ()) = {}
+	var body: some View {
+		Button(action: action) {
+			Text("Accept")
+				.foregroundColor(.black)
+		}
+	}
+}
+
+/// This view shows a green button with the text Continue
+/// This view will be shown if the answer is good
+struct goodAnswerButton: View {
+	// Void function parameter
+	var action: (() -> ()) = {}
+	var body: some View {
+		Button(action: action) {
+			Text("Continue")
+				.foregroundColor(.green)
+		}
+	}
+}
+
+/// This view shows a red button with the text Continue
+/// This view will be shown if the answer is wrong
+struct wrongAnswerButton: View {
+	var action: (() -> ()) = {}
+	var body: some View {
+		Button(action: action) {
+			Text("Continue")
+				.foregroundColor(.red)
+		}
+	}
+}
+
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
-		longNavigationLink()
+		goodAnswerButton()
 	}
 }

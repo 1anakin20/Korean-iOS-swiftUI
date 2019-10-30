@@ -13,7 +13,7 @@ struct SinoNumbers: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Korean to English", destination: AnyView(koreanToEnglishNumbers()))
+			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(sinoNumberToKorean()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
@@ -72,30 +72,44 @@ struct options: View {
 	}
 }
 
-struct koreanToEnglishNumbers: View {
-	@State var inputAnswer: String = ""
+/// This view will present numbers and the user will write them in Korean
+struct sinoNumberToKorean: View {
+	@State private var inputAnswer: String = ""
+	@State private var number: String = ""
+	
+	// Properties variables
+	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
+	
+	func showNewNumber() {
+		number = showKoreanRandomNum()
+		acceptButtonView = AnyView(acceptButton())
+	}
+	
 	var body: some View {
 		VStack {
 			Image("Test1")
 				.resizable()
 				.scaledToFit()
 				.frame(width: 200, height: 200)
+			Text(number)
+				.padding()
 			HStack {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 					.disableAutocorrection(true)
-				Button(action: {}) {
-					Text("Accept")
-				}
+				acceptButtonView
 			}
 			.position(x: 190, y: 100)
 			.padding()
+		}
+		.onAppear {
+			self.showNewNumber()
 		}
 	}
 }
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		koreanToEnglishNumbers()
+		sinoNumberToKorean()
 	}
 }
