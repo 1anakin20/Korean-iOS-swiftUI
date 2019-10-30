@@ -33,7 +33,7 @@ class SinoNumbersCreatorFunctions: NSObject {
 		return randomNum
 	}
 	
-	// I don't understand this algorithm, I just found it on github and it works 🤷‍♀️
+	// I don't understand this code, I just found it on github and it works 🤷‍♀️
 	let koreanPowerString = [0:"", 1:"십", 2:"백",3:"천", 4:"만", 5:"십", 6:"백", 7:"천", 8:"억", 9:"십", 10:"백", 11:"천", 12:"조", 13:"십", 14:"백", 15:"천"]
 	
 	func koreanString(number: Int, base:Int, maxPower: Int, originalNumber:Int) -> String {
@@ -45,7 +45,7 @@ class SinoNumbersCreatorFunctions: NSObject {
 		}
 	}
 	
-	func numberDecimaltoStringKorean(decimalNumber:Int) -> String {
+	func numberDecimaltoStringKorean(decimalNumber: Int) -> String {
 		var output = ""
 		var number = decimalNumber
 		var power: Int = 0

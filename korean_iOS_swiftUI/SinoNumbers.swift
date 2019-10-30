@@ -76,13 +76,16 @@ struct options: View {
 struct sinoNumberToKorean: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
-	
-	// Properties variables
+	@State private var continueButton: Bool = false
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
 	
 	func showNewNumber() {
 		number = showKoreanRandomNum()
-		acceptButtonView = AnyView(acceptButton())
+		acceptButtonView = AnyView(acceptButton(action: checkAnswer))
+	}
+	
+	func checkAnswer() {
+		
 	}
 	
 	var body: some View {

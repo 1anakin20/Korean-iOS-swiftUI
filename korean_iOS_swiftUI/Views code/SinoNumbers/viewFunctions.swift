@@ -15,3 +15,14 @@ func showKoreanRandomNum() -> String {
 	return randStringNumber
 }
 
+func checkAnswerNumberToKorean(randNumber: Int, input: String) -> Bool {
+	let numbersCreator = SinoNumbersCreatorFunctions()
+	let koNumber = numbersCreator.numberDecimaltoStringKorean(decimalNumber: randNumber)
+	if(input == String(koNumber)) {
+		// The answer was good
+		return true
+	} else {
+		// The answer was wrong
+		return false
+	}
+}
