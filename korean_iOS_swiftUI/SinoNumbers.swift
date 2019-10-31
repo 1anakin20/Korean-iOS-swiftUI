@@ -85,7 +85,14 @@ struct sinoNumberToKorean: View {
 	}
 	
 	func checkAnswer() {
-		
+		if(checkAnswerNumberToKorean(randNumber: 1, input: inputAnswer)) {
+			// If the answer is good
+			acceptButtonView = AnyView(goodAnswerButton())
+		} else {
+			// If the answer is bad
+			acceptButtonView = AnyView(wrongAnswerButton())
+		}
+		continueButton = true
 	}
 	
 	var body: some View {
