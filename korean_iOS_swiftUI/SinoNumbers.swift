@@ -76,23 +76,38 @@ struct options: View {
 struct sinoNumberToKorean: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
-	@State private var continueButton: Bool = false
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
+//	@State private var continueButton: Bool = false
 	
+	/// This function will reset the view for a new number
 	func showNewNumber() {
 		number = showKoreanRandomNum()
 		acceptButtonView = AnyView(acceptButton(action: checkAnswer))
 	}
 	
+//	/// This function checks if the view is currently in the 'Continue' button
+//	func checkContinue() {
+//		if(continueButton) {
+//			// If the value is true it means the button view is currently continue
+//			// The user is clicking it to go to the next number
+//			acceptButtonView = AnyView(acceptButton(action: showNewNumber))
+//		} else {
+//			// If the value is false it then means the view is the accept view
+//			// The user is clicking it accept the input
+//			// The app will then proced to check the answer
+//			checkAnswer()
+//		}
+//		self.continueButton.toggle()
+//	}
+	
 	func checkAnswer() {
-		if(checkAnswerNumberToKorean(randNumber: 1, input: inputAnswer)) {
+		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
 			// If the answer is good
-			acceptButtonView = AnyView(goodAnswerButton())
+			acceptButtonView = AnyView(goodAnswerButton(action: showNewNumber))
 		} else {
 			// If the answer is bad
-			acceptButtonView = AnyView(wrongAnswerButton())
+			acceptButtonView = AnyView(wrongAnswerButton(action: showNewNumber))
 		}
-		continueButton = true
 	}
 	
 	var body: some View {
