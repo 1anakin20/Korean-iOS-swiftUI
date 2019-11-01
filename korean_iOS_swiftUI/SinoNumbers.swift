@@ -77,21 +77,40 @@ struct sinoNumberToKorean: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
+	@State private var continueState: Bool = false
+	@State private var textColor: Color = .black
+	
+	func checkForContinue() {
+		if(continueState) {
+			// If the view is in continue button
+			showNewNumber()
+			textColor = .black
+			continueState.toggle()
+		} else {
+			// If the view is not in the continue button
+			checkAnswer()
+			continueState.toggle()
+		}
+	}
 	
 	/// This function will reset the view for a new number
 	func showNewNumber() {
 		inputAnswer = ""
 		number = showKoreanRandomNum()
-		acceptButtonView = AnyView(acceptButton(action: checkAnswer))
+		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
 	}
 	
 	func checkAnswer() {
 		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
 			// If the answer is good
-			acceptButtonView = AnyView(goodAnswerButton(action: showNewNumber))
+			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
+			number = "That's the good answer"
+			textColor = .green
 		} else {
 			// If the answer is bad
-			acceptButtonView = AnyView(wrongAnswerButton(action: showNewNumber))
+			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
+			number = "The good answer for \(number) was \(koNumber(randNumber: Int(number)!))"
+			textColor = .red
 		}
 	}
 	
@@ -103,6 +122,7 @@ struct sinoNumberToKorean: View {
 				.frame(width: 200, height: 200)
 			Text(number)
 				.padding()
+				.foregroundColor(textColor)
 			HStack {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
