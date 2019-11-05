@@ -8,7 +8,7 @@
 
 import AVFoundation
 
-class Sounds {
+class Sounds: NSObject {
 	var audioPlayer: AVAudioPlayer?
 	
 	func playCorrectSound() {
