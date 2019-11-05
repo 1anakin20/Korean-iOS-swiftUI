@@ -101,16 +101,19 @@ struct sinoNumberToKorean: View {
 	}
 	
 	func checkAnswer() {
+		let playSound = Sounds()
 		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
 			// If the answer is good
 			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
 			number = "That's the good answer"
 			textColor = .green
+			playSound.playCorrectSound()
 		} else {
 			// If the answer is bad
 			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
 			number = "The good answer for \(number) was \(koNumber(randNumber: Int(number)!))"
 			textColor = .red
+			playSound.playIncorrectSound()
 		}
 	}
 	
