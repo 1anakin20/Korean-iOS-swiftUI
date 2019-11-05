@@ -13,7 +13,7 @@ struct SinoNumbers: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Korean to English", destination: AnyView(koreanToEnglishNumbers()))
+			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(sinoNumberToKorean()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
@@ -72,30 +72,77 @@ struct options: View {
 	}
 }
 
-struct koreanToEnglishNumbers: View {
-	@State var inputAnswer: String = ""
+/// This view will present numbers and the user will write them in Korean
+struct sinoNumberToKorean: View {
+	@State private var inputAnswer: String = ""
+	@State private var number: String = ""
+	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
+	@State private var continueState: Bool = false
+	@State private var textColor: Color = .black
+	
+	func checkForContinue() {
+		if(continueState) {
+			// If the view is in continue button
+			showNewNumber()
+			textColor = .black
+			continueState.toggle()
+		} else {
+			// If the view is not in the continue button
+			checkAnswer()
+			continueState.toggle()
+		}
+	}
+	
+	/// This function will reset the view for a new number
+	func showNewNumber() {
+		inputAnswer = ""
+		number = showKoreanRandomNum()
+		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
+	}
+	
+	func checkAnswer() {
+		let playSound = Sounds()
+		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
+			// If the answer is good
+			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
+			number = "That's the good answer"
+			textColor = .green
+			playSound.playCorrectSound()
+		} else {
+			// If the answer is bad
+			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
+			number = "The good answer for \(number) was \(koNumber(randNumber: Int(number)!))"
+			textColor = .red
+			playSound.playIncorrectSound()
+		}
+	}
+	
 	var body: some View {
 		VStack {
 			Image("Test1")
 				.resizable()
 				.scaledToFit()
 				.frame(width: 200, height: 200)
+			Text(number)
+				.padding()
+				.foregroundColor(textColor)
 			HStack {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 					.disableAutocorrection(true)
-				Button(action: {}) {
-					Text("Accept")
-				}
+				acceptButtonView
 			}
 			.position(x: 190, y: 100)
 			.padding()
+		}
+		.onAppear {
+			self.showNewNumber()
 		}
 	}
 }
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		koreanToEnglishNumbers()
+		sinoNumberToKorean()
 	}
 }
