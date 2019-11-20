@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B369F68A236CB538008DF254 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = B369F688236CB538008DF254 /* correct.wav */; };
-		B369F68B236CB538008DF254 /* incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = B369F689236CB538008DF254 /* incorrect.wav */; };
 		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
 		B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */; };
 		B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F52369FB4C0092C26B /* viewFunctions.swift */; };
-		B3CE9058236B51BE0034FA05 /* sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE9057236B51BE0034FA05 /* sounds.swift */; };
 		B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */; };
 		B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */; };
 		B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351B023578B4500A3F4F6 /* ContentView.swift */; };
@@ -44,13 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B369F688236CB538008DF254 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
-		B369F689236CB538008DF254 /* incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect.wav; sourceTree = "<group>"; };
 		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinoNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B38F67F52369FB4C0092C26B /* viewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewFunctions.swift; sourceTree = "<group>"; };
 		B39C63E3235D099A008D6376 /* korean_iOS_swiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = korean_iOS_swiftUI.entitlements; sourceTree = "<group>"; };
-		B3CE9057236B51BE0034FA05 /* sounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sounds.swift; sourceTree = "<group>"; };
 		B3E351A923578B4500A3F4F6 /* korean_iOS_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korean_iOS_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,18 +92,8 @@
 		B369F686236CB4C1008DF254 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				B369F687236CB538008DF254 /* sounds */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		B369F687236CB538008DF254 /* sounds */ = {
-			isa = PBXGroup;
-			children = (
-				B369F688236CB538008DF254 /* correct.wav */,
-				B369F689236CB538008DF254 /* incorrect.wav */,
-			);
-			path = sounds;
 			sourceTree = "<group>";
 		};
 		B383912B235F70B1005EE147 /* Views code */ = {
@@ -133,7 +117,6 @@
 		B3CE9059236B51C90034FA05 /* Numbers */ = {
 			isa = PBXGroup;
 			children = (
-				B3CE9057236B51BE0034FA05 /* sounds.swift */,
 				B383912C235F7131005EE147 /* SinoNumbers */,
 			);
 			path = Numbers;
@@ -310,8 +293,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E351B923578B4700A3F4F6 /* LaunchScreen.storyboard in Resources */,
-				B369F68B236CB538008DF254 /* incorrect.wav in Resources */,
-				B369F68A236CB538008DF254 /* correct.wav in Resources */,
 				B3E351B623578B4700A3F4F6 /* Preview Assets.xcassets in Resources */,
 				B3E351B323578B4700A3F4F6 /* Assets.xcassets in Resources */,
 			);
@@ -341,7 +322,6 @@
 				B383912E235F7154005EE147 /* options.swift in Sources */,
 				B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */,
 				B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */,
-				B3CE9058236B51BE0034FA05 /* sounds.swift in Sources */,
 				B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */,
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,
