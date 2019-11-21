@@ -9,18 +9,18 @@
 import SwiftUI
 
 /// This presents the navigation links for Korean to english and english to korean, it also shows an option button in the navigation bar to the option view
-struct SinoNumbers: View {
+struct SinoNumberToKorean: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(sinoNumberToKorean()))
+			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(SinoNumberToKorean()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
 				// Present view options
 				self.showOptions = true
 			}.sheet(isPresented: self.$showOptions) {
-				options()
+				SinoOptions()
 			}
 		)
 	}
@@ -28,23 +28,23 @@ struct SinoNumbers: View {
 
 
 /// This option modal view will determine the max and min of the random numbers
-struct options: View {
+struct SinoOptions: View {
 	@State var maximumNumber: String = ""
 	@State var minimumNumber: String = ""
 	
-	func saveValues() {
-		UserSettingsDefaults().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
+	func saveValuesNum() {
+		UserSettingsDefaultsSinoNumberToKorean().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
 	}
 	
 	func setValues() {
-		maximumNumber = String(UserSettingsDefaults().checkMax())
-		minimumNumber = String(UserSettingsDefaults().checkMin())
+		maximumNumber = String(UserSettingsDefaultsSinoNumberToKorean().checkMax())
+		minimumNumber = String(UserSettingsDefaultsSinoNumberToKorean().checkMin())
 	}
 	
 	var body: some View {
 		VStack(spacing: 50) {
 			Button(action: {
-				self.saveValues()
+				self.saveValuesNum()
 			}) {
 				Text("Save")
 			}
@@ -73,7 +73,7 @@ struct options: View {
 }
 
 /// This view will present numbers and the user will write them in Korean
-struct sinoNumberToKorean: View {
+struct SinoNumberToKorean: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
@@ -83,7 +83,7 @@ struct sinoNumberToKorean: View {
 	func checkForContinue() {
 		if(continueState) {
 			// If the view is in continue button
-			showNewNumber()
+			showSinoNewNumber()
 			textColor = .black
 			continueState.toggle()
 		} else {
@@ -94,7 +94,7 @@ struct sinoNumberToKorean: View {
 	}
 	
 	/// This function will reset the view for a new number
-	func showNewNumber() {
+	func showSinoNewNumber() {
 		inputAnswer = ""
 		number = showKoreanRandomNum()
 		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
@@ -132,13 +132,13 @@ struct sinoNumberToKorean: View {
 			.padding()
 		}
 		.onAppear {
-			self.showNewNumber()
+			self.showSinoNewNumber()
 		}
 	}
 }
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		sinoNumberToKorean()
+		SinoNumberToKorean()
 	}
 }

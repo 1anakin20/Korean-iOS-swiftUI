@@ -11,8 +11,8 @@ import UIKit
 // This class creates the sino-korean numbers
 class SinoNumbersCreatorFunctions: NSObject {
 	// Functions values
-	let intMax = UserSettingsDefaults().checkMax()
-	let intMin = UserSettingsDefaults().checkMin()
+	let intMax = UserSettingsDefaultsSinoNumberToKorean().checkMax()
+	let intMin = UserSettingsDefaultsSinoNumberToKorean().checkMin()
 	
 	// This array represents the different names of the numbers
 	let koreanDigitNames = [0:"영",
