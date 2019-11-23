@@ -32,7 +32,7 @@ struct SinoOptions: View {
 	@State var maximumNumber: String = ""
 	@State var minimumNumber: String = ""
 	
-	func saveValuesNum() {
+	func saveValuesNumber() {
 		UserSettingsDefaultsSinoNumberToKorean().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
 	}
 	
@@ -44,7 +44,7 @@ struct SinoOptions: View {
 	var body: some View {
 		VStack(spacing: 50) {
 			Button(action: {
-				self.saveValuesNum()
+				self.saveValuesNumber()
 			}) {
 				Text("Save")
 			}

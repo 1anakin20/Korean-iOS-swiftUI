@@ -20,7 +20,7 @@
 		B3E351CF23578B4800A3F4F6 /* korean_iOS_swiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351CE23578B4800A3F4F6 /* korean_iOS_swiftUIUITests.swift */; };
 		B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351DC2358D4AC00A3F4F6 /* playView.swift */; };
 		B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */; };
-		B3E351E12358ED9700A3F4F6 /* SinoNumEnglishToKorean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351E02358ED9700A3F4F6 /* SinoNumEnglishToKorean.swift */; };
+		B3E351E12358ED9700A3F4F6 /* SinoNumberToKorean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351E02358ED9700A3F4F6 /* SinoNumberToKorean.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		B3E351D023578B4800A3F4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3E351DC2358D4AC00A3F4F6 /* playView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playView.swift; sourceTree = "<group>"; };
 		B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViews.swift; sourceTree = "<group>"; };
-		B3E351E02358ED9700A3F4F6 /* SinoNumEnglishToKorean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoNumEnglishToKorean.swift; sourceTree = "<group>"; };
+		B3E351E02358ED9700A3F4F6 /* SinoNumberToKorean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoNumberToKorean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 				B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */,
 				B3E351B023578B4500A3F4F6 /* ContentView.swift */,
 				B3E351DC2358D4AC00A3F4F6 /* playView.swift */,
-				B3E351E02358ED9700A3F4F6 /* SinoNumEnglishToKorean.swift */,
+				B3E351E02358ED9700A3F4F6 /* SinoNumberToKorean.swift */,
 				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
 				B383912B235F70B1005EE147 /* Views code */,
 				B369F686236CB4C1008DF254 /* Assets */,
@@ -327,7 +327,7 @@
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
 				B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */,
-				B3E351E12358ED9700A3F4F6 /* SinoNumEnglishToKorean.swift in Sources */,
+				B3E351E12358ED9700A3F4F6 /* SinoNumberToKorean.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
