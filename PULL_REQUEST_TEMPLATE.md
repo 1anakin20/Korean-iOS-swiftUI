@@ -1,8 +1,5 @@
-### Objective
-The goal of the pull request
+### Objective:
 
-### Changes
-What changes where done
+### Changes:
 
-### Issues
-Issue number: explanation
+### Issues:
