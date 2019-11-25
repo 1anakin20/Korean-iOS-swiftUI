@@ -9,11 +9,11 @@
 import SwiftUI
 
 /// This presents the navigation links for Korean to english and english to korean, it also shows an option button in the navigation bar to the option view
-struct SinoNumberToKorean: View {
+struct SinoNumberToKoreanMenu: View {
 	@State private var showOptions: Bool = false
 	var body: some View {
 		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(SinoNumberToKorean()))
+			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(SinoNumberToKoreanPlay()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
@@ -73,7 +73,7 @@ struct SinoOptions: View {
 }
 
 /// This view will present numbers and the user will write them in Korean
-struct SinoNumberToKorean: View {
+struct SinoNumberToKoreanPlay: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
@@ -139,6 +139,6 @@ struct SinoNumberToKorean: View {
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		SinoNumberToKorean()
+		SinoNumberToKoreanMenu()
 	}
 }

@@ -13,7 +13,7 @@ struct playView: View {
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 30) {
-				squareNavigationLink(backgroundColor: .purple, text: "Sino-Korean numbers", destination: AnyView(SinoNumberToKorean()))
+				squareNavigationLink(backgroundColor: .purple, text: "Sino-Korean numbers", destination: AnyView(SinoNumberToKoreanMenu()))
 				squareNavigationLink(backgroundColor: .blue, text: "Native-Korean numbers")
 				squareNavigationLink(backgroundColor: .green, text: "Vocabulary")
 			}
