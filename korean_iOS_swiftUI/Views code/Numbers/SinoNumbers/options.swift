@@ -9,7 +9,7 @@
 import Foundation
 
 /// This class has functions that will save the user input from options of SinoNumbers
-class UserSettingsDefaults: NSObject {
+class UserSettingsDefaultsSinoNumberToKorean: NSObject {
 	let defaults = UserDefaults.standard
 	
 	// Keys strings
@@ -70,14 +70,14 @@ final class FirstLaunch {
 }
 
 func firstLaunchDefaultValues() {
-	let userSettings = UserSettingsDefaults()
+	let userSettings = UserSettingsDefaultsSinoNumberToKorean()
 	let firstLaunch = FirstLaunch(userDefaults: .standard, key: userSettings.wasLaunchedBefore)
 	if(firstLaunch.isFirstLaunch) {
-		let sinoMaxKey = UserSettingsDefaults().maxKey
-		let sinoMinKey = UserSettingsDefaults().minKey
+		let sinoMaxKey = UserSettingsDefaultsSinoNumberToKorean().maxKey
+		let sinoMinKey = UserSettingsDefaultsSinoNumberToKorean().minKey
 		// Set default values
-		UserSettingsDefaults().defaults.set(100, forKey: sinoMaxKey)
-		UserSettingsDefaults().defaults.set(1, forKey: sinoMinKey)
+		UserSettingsDefaultsSinoNumberToKorean().defaults.set(100, forKey: sinoMaxKey)
+		UserSettingsDefaultsSinoNumberToKorean().defaults.set(1, forKey: sinoMinKey)
 		
 		// The native numbers have not yet been added
 		//			// Native numbers
