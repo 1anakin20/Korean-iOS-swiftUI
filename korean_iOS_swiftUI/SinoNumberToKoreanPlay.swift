@@ -20,7 +20,7 @@ struct SinoNumberToKoreanMenu: View {
 				// Present view options
 				self.showOptions = true
 			}.sheet(isPresented: self.$showOptions) {
-				SinoOptions()
+				SinoOptionsNumbers()
 			}
 		)
 	}
@@ -28,7 +28,7 @@ struct SinoNumberToKoreanMenu: View {
 
 
 /// This option modal view will determine the max and min of the random numbers
-struct SinoOptions: View {
+struct SinoOptionsNumbers: View {
 	@State var maximumNumber: String = ""
 	@State var minimumNumber: String = ""
 	
@@ -139,6 +139,6 @@ struct SinoNumberToKoreanPlay: View {
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		SinoNumberToKoreanMenu()
+		SinoOptionsNumbers()
 	}
 }
