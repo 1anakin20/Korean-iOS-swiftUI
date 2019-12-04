@@ -79,8 +79,10 @@ struct SinoNumberToKoreanPlay: View {
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
 	@State private var continueState: Bool = false
 	@State private var textColor: Color = .black
+	@State private var isImageHidden: Bool = true
 	
 	func checkForContinue() {
+		toggleImage()
 		if(continueState) {
 			// If the view is in continue button
 			showSinoNewNumber()
@@ -113,12 +115,17 @@ struct SinoNumberToKoreanPlay: View {
 		}
 	}
 	
+	func toggleImage() {
+		isImageHidden.toggle()
+	}
+	
 	var body: some View {
 		VStack {
-			Image("Test1")
-				.resizable()
-				.scaledToFit()
-				.frame(width: 200, height: 200)
+			if(isImageHidden) {
+				numbersImage().hidden()
+			} else {
+				numbersImage()
+			}
 			Text(number)
 				.padding()
 				.foregroundColor(textColor)
@@ -139,6 +146,6 @@ struct SinoNumberToKoreanPlay: View {
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		SinoOptionsNumbers()
+		SinoNumberToKoreanPlay()
 	}
 }

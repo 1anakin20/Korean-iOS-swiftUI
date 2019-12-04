@@ -119,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				B3E351B023578B4500A3F4F6 /* ContentView.swift */,
-				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
 				B3E351DC2358D4AC00A3F4F6 /* playView.swift */,
 				B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */,
+				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
 				B383912B235F70B1005EE147 /* code */,
 			);
 			path = Views;

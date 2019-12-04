@@ -82,6 +82,18 @@ struct wrongAnswerButton: View {
 	}
 }
 
+/// Subview of image that will change depening if the answer is correct or wrong
+/// In Sino Number to Korean
+struct numbersImage: View {
+	var body: some View {
+			Image("Test1")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 200, height: 200)
+	}
+}
+
+
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
 		goodAnswerButton()
