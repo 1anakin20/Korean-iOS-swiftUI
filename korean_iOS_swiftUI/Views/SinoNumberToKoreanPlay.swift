@@ -32,6 +32,7 @@ struct SinoOptionsNumbers: View {
 	@State var maximumNumber: String = ""
 	@State var minimumNumber: String = ""
 	
+	/// This function saves the values after clicking save in the options view
 	func saveValuesNumber() {
 		UserSettingsDefaultsSinoNumberToKorean().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
 	}
@@ -102,6 +103,7 @@ struct SinoNumberToKoreanPlay: View {
 		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
 	}
 	
+	/// This function will check if the answer is correct or incorrect
 	func checkAnswer() {
 		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
 			// If the answer is good
@@ -115,12 +117,14 @@ struct SinoNumberToKoreanPlay: View {
 		}
 	}
 	
+	/// Toggle the image to show or not
 	func toggleImage() {
 		isImageHidden.toggle()
 	}
 	
 	var body: some View {
 		VStack {
+			// To hide or not to hide the image, that's the question
 			if(isImageHidden) {
 				numbersImage().hidden()
 			} else {
