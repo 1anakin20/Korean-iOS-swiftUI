@@ -126,9 +126,9 @@ struct SinoNumberToKoreanPlay: View {
 		VStack {
 			// To hide or not to hide the image, that's the question
 			if(isImageHidden) {
-				numbersImage().hidden()
+				numbersImage(imageName: "Test1").hidden()
 			} else {
-				numbersImage()
+				numbersImage(imageName: "Test1")
 			}
 			Text(number)
 				.padding()

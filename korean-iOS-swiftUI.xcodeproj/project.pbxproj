@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3362BCD2399C26800BCAA70 /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCC2399C26800BCAA70 /* images.swift */; };
 		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
 		B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */; };
 		B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F52369FB4C0092C26B /* viewFunctions.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3362BCC2399C26800BCAA70 /* images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinoNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B38F67F52369FB4C0092C26B /* viewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewFunctions.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		B3CE9059236B51C90034FA05 /* Numbers */ = {
 			isa = PBXGroup;
 			children = (
+				B3362BCC2399C26800BCAA70 /* images.swift */,
 				B383912C235F7131005EE147 /* SinoNumbers */,
 			);
 			path = Numbers;
@@ -322,6 +325,7 @@
 				B383912E235F7154005EE147 /* options.swift in Sources */,
 				B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */,
 				B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */,
+				B3362BCD2399C26800BCAA70 /* images.swift in Sources */,
 				B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */,
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 // This class creates the sino-korean numbers
 class SinoNumbersCreatorFunctions: NSObject {
 	// Functions values
+	// To create a random number between the user selected range
 	let intMax = UserSettingsDefaultsSinoNumberToKorean().checkMax()
 	let intMin = UserSettingsDefaultsSinoNumberToKorean().checkMin()
 	
@@ -27,8 +28,8 @@ class SinoNumbersCreatorFunctions: NSObject {
 							9:"구",
 		] as [Int : String]
 	
-	// Quite obious by it's name, this will take a random number
-	func randomNumber() -> Int {
+	// Quite obious by it's name, this will make a random number for the numbers
+	func randomNumberNumbersPlay() -> Int {
 		let randomNum = Int.random(in: intMin...intMax)
 		return randomNum
 	}
