@@ -89,15 +89,45 @@ struct numbersImage: View {
 	
 	var body: some View {
 		Image(imageName)
-				.resizable()
-				.scaledToFit()
-				.frame(width: 200, height: 200)
+			.resizable()
+			.scaledToFit()
+			.frame(width: 200, height: 200)
+	}
+}
+
+struct playViewReusable: View {
+	@State var isImageHidden: Bool
+	@State var displayedImageName: String
+	@State var number: String
+	@State var textColor: Color
+	@State var inputAnswer: String = ""
+	@State var acceptButtonView: AnyView = AnyView(acceptButton())
+	
+	var body: some View {
+		VStack {
+			if(isImageHidden) {
+				numbersImage(imageName: displayedImageName).hidden()
+			} else {
+				numbersImage(imageName: displayedImageName)
+			}
+			Text(number)
+				.padding()
+				.foregroundColor(textColor)
+			HStack {
+				TextField("Answer", text: $inputAnswer)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.disableAutocorrection(true)
+				acceptButtonView
+			}
+			.position(x: 190, y: 100)
+			.padding()
+		}
 	}
 }
 
 
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
-		goodAnswerButton()
+		playViewReusable(isImageHidden: true, displayedImageName: "", number: "hello", textColor: Color.black)
 	}
 }
