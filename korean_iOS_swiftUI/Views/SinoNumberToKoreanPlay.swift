@@ -81,7 +81,7 @@ struct SinoNumberToKoreanPlay: View {
 	@State private var continueState: Bool = false
 	@State private var textColor: Color = .black
 	@State private var isImageHidden: Bool = true
-	@State private var displayedImageName: String = ""
+	@State private var displayedImageName: String = "grandma1"
 	
 	func checkForContinue() {
 		isImageHidden.toggle()
