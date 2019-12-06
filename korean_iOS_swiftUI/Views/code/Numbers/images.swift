@@ -8,7 +8,7 @@
 
 import UIKit
 
-class images: NSObject {
+class Images: NSObject {
 	// How much images they are for each category
 	let grandmaTotalImages = 4
 	let grandpaTotalImages = 3
