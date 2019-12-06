@@ -8,18 +8,34 @@
 
 import UIKit
 
-class image {
-	/// This function will choose a random image name if it's the correct answer
-	func goodImage() -> String {
-		let maxCorrectImages = 4
-		let randomImage = "grandma"
-		let randomNumber = Int.random(in: 1...maxCorrectImages)
-		let imageName = "\(randomImage)\(randomNumber)"
-		return imageName
+class images: NSObject {
+	// How much images they are for each category
+	let grandmaTotalImages = 4
+	let grandpaTotalImages = 3
+	var maxImages = 0
+	
+	///This function will be called if the answer is good and will call imageChoice
+	func correctImage() -> String {
+		return imageChoice(imagesChoice: "grandma")
 	}
 	
-	/// This functions will choose a random image name if it's the wrong answer
-	func wrongImage() -> String {
-		return ""
+	/// This function will be called if the answer is wrong and will set the images to grandpa
+	func incorrectImage() -> String {
+		return imageChoice(imagesChoice: "grandpa")
+	}
+	
+	/// It will return a random image name
+	func imageChoice(imagesChoice: String) -> String {
+		switch imagesChoice {
+		case "grandma":
+			maxImages = grandmaTotalImages
+		case "grandpa":
+			maxImages = grandpaTotalImages
+		default:
+			print("Error: no case matching to imagesChoices")
+		}
+		let randomNumber = Int.random(in: 1...maxImages)
+		let randomImageName = "\(imagesChoice)\(randomNumber)"
+		return randomImageName
 	}
 }
