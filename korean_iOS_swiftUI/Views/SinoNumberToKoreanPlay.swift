@@ -32,6 +32,7 @@ struct SinoOptionsNumbers: View {
 	@State var maximumNumber: String = ""
 	@State var minimumNumber: String = ""
 	
+	/// This function saves the values after clicking save in the options view
 	func saveValuesNumber() {
 		UserSettingsDefaultsSinoNumberToKorean().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
 	}
@@ -79,8 +80,11 @@ struct SinoNumberToKoreanPlay: View {
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
 	@State private var continueState: Bool = false
 	@State private var textColor: Color = .black
+	@State private var isImageHidden: Bool = true
+	@State private var displayedImageName: String = ""
 	
 	func checkForContinue() {
+		isImageHidden.toggle()
 		if(continueState) {
 			// If the view is in continue button
 			showSinoNewNumber()
@@ -100,25 +104,32 @@ struct SinoNumberToKoreanPlay: View {
 		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
 	}
 	
+	/// This function will check if the answer is correct or incorrect
 	func checkAnswer() {
+		let images = Images()
 		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
 			// If the answer is good
 			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
 			number = "That's the good answer"
 			textColor = .green
+			// Change the image to the correct one
+			displayedImageName = images.correctImage()
 		} else {
 			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
 			number = "The good answer for \(number) was \(koNumber(randNumber: Int(number)!))"
 			textColor = .red
+			displayedImageName = images.incorrectImage()
 		}
 	}
 	
 	var body: some View {
 		VStack {
-			Image("Test1")
-				.resizable()
-				.scaledToFit()
-				.frame(width: 200, height: 200)
+			// To hide or not to hide the image, that's the question
+			if(isImageHidden) {
+				numbersImage(imageName: displayedImageName).hidden()
+			} else {
+				numbersImage(imageName: displayedImageName)
+			}
 			Text(number)
 				.padding()
 				.foregroundColor(textColor)
@@ -139,6 +150,6 @@ struct SinoNumberToKoreanPlay: View {
 
 struct SinoNumbers_Previews: PreviewProvider {
 	static var previews: some View {
-		SinoOptionsNumbers()
+		SinoNumberToKoreanPlay()
 	}
 }

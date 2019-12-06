@@ -10,7 +10,7 @@ import Foundation
 
 func showKoreanRandomNum() -> String {
 	let numbersCreator = SinoNumbersCreatorFunctions()
-	let randNumber = numbersCreator.randomNumber()
+	let randNumber = numbersCreator.randomNumberNumbersPlay()
 	let randStringNumber = String(randNumber)
 	return randStringNumber
 }
