@@ -88,7 +88,7 @@ struct numbersImage: View {
 	var imageName: String
 	
 	var body: some View {
-			Image(imageName)
+		Image(imageName)
 				.resizable()
 				.scaledToFit()
 				.frame(width: 200, height: 200)

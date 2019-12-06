@@ -84,7 +84,7 @@ struct SinoNumberToKoreanPlay: View {
 	@State private var displayedImageName: String = ""
 	
 	func checkForContinue() {
-		toggleImage()
+		isImageHidden.toggle()
 		if(continueState) {
 			// If the view is in continue button
 			showSinoNewNumber()
@@ -122,16 +122,11 @@ struct SinoNumberToKoreanPlay: View {
 		}
 	}
 	
-	/// Toggle the image to show or not
-	func toggleImage() {
-		isImageHidden.toggle()
-	}
-	
 	var body: some View {
 		VStack {
 			// To hide or not to hide the image, that's the question
 			if(isImageHidden) {
-				numbersImage(imageName: "").hidden()
+				numbersImage(imageName: displayedImageName).hidden()
 			} else {
 				numbersImage(imageName: displayedImageName)
 			}
