@@ -110,7 +110,6 @@ struct playViewReusable: View {
 			} else {
 				numbersImage(imageName: displayedImageName)
 			}
-			//			labelNumber(numberLabel: numberLabel, textColor: textColor)
 			Text(numberLabel)
 				.padding()
 				.foregroundColor(textColor)
