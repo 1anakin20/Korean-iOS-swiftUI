@@ -95,16 +95,25 @@ struct numbersImage: View {
 	}
 }
 
+/// Reusable configurable view for the play view
 struct playViewReusable: View {
+	// Should the image be displayed
 	@Binding var isImageHidden: Bool
+	// The name of the image to display
 	@Binding var displayedImageName: String
+	// The text in the label
 	@Binding var numberLabel: String
+	// The color of the text label
 	@Binding var textColor: Color
+	// The input of the text field
 	@Binding var inputAnswer: String
+	// The accept button children view
 	@Binding var acceptButtonView: AnyView
 	
 	var body: some View {
 		VStack(spacing: 50) {
+			// To show or not to show, that is the question
+			// If the image should show or not
 			if(isImageHidden) {
 				numbersImage(imageName: displayedImageName).hidden()
 			} else {
@@ -117,6 +126,7 @@ struct playViewReusable: View {
 				TextField("Answer", text: $inputAnswer)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 					.disableAutocorrection(true)
+				// The accept button children view
 				acceptButtonView
 			}
 		}
