@@ -96,21 +96,22 @@ struct numbersImage: View {
 }
 
 struct playViewReusable: View {
-	@State var isImageHidden: Bool
-	@State var displayedImageName: String
-	@State var number: String
-	@State var textColor: Color
-	@State var inputAnswer: String = ""
-	@State var acceptButtonView: AnyView = AnyView(acceptButton())
+	@Binding var isImageHidden: Bool
+	@Binding var displayedImageName: String
+	@Binding var numberLabel: String
+	@Binding var textColor: Color
+	@Binding var inputAnswer: String
+	@Binding var acceptButtonView: AnyView
 	
 	var body: some View {
-		VStack {
+		VStack(spacing: 50) {
 			if(isImageHidden) {
 				numbersImage(imageName: displayedImageName).hidden()
 			} else {
 				numbersImage(imageName: displayedImageName)
 			}
-			Text(number)
+			//			labelNumber(numberLabel: numberLabel, textColor: textColor)
+			Text(numberLabel)
 				.padding()
 				.foregroundColor(textColor)
 			HStack {
@@ -119,15 +120,17 @@ struct playViewReusable: View {
 					.disableAutocorrection(true)
 				acceptButtonView
 			}
-			.position(x: 190, y: 100)
-			.padding()
 		}
+		.position(x: 190, y: 100)
+		.padding()
 	}
 }
 
 
+
+
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
-		playViewReusable(isImageHidden: true, displayedImageName: "", number: "hello", textColor: Color.black)
+		squareNavigationLink()
 	}
 }

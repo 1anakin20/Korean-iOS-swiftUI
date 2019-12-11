@@ -124,25 +124,13 @@ struct SinoNumberToKoreanPlay: View {
 	
 	var body: some View {
 		VStack {
-			// To hide or not to hide the image, that's the question
-			if(isImageHidden) {
-				numbersImage(imageName: displayedImageName).hidden()
-			} else {
-				numbersImage(imageName: displayedImageName)
-			}
-			Text(number)
-				.padding()
-				.foregroundColor(textColor)
-			HStack {
-				TextField("Answer", text: $inputAnswer)
-					.textFieldStyle(RoundedBorderTextFieldStyle())
-					.disableAutocorrection(true)
-				acceptButtonView
-			}
-			.position(x: 190, y: 100)
-			.padding()
-		}
-		.onAppear {
+			playViewReusable(isImageHidden: $isImageHidden,
+							 displayedImageName: $displayedImageName,
+							 numberLabel: $number,
+							 textColor: $textColor,
+							 inputAnswer: $inputAnswer,
+							 acceptButtonView: $acceptButtonView)
+		}.onAppear {
 			self.showSinoNewNumber()
 		}
 	}
