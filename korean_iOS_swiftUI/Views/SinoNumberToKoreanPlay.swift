@@ -83,45 +83,6 @@ struct SinoNumberToKoreanPlay: View {
 	@State private var isImageHidden: Bool = true
 	@State private var displayedImageName: String = "grandma1"
 	
-	func checkForContinue() {
-		isImageHidden.toggle()
-		if(continueState) {
-			// If the view is in continue button
-			showSinoNewNumber()
-			textColor = .black
-			continueState.toggle()
-		} else {
-			// If the view is not in the continue button
-			checkAnswer()
-			continueState.toggle()
-		}
-	}
-	
-	/// This function will reset the view for a new number
-	func showSinoNewNumber() {
-		inputAnswer = ""
-		number = showKoreanRandomNum()
-		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
-	}
-	
-	/// This function will check if the answer is correct or incorrect
-	func checkAnswer() {
-		let images = Images()
-		if(checkAnswerNumberToKorean(randNumber: Int(number)!, input: inputAnswer)) {
-			// If the answer is good
-			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
-			number = "That's the good answer"
-			textColor = .green
-			// Change the image to the correct one
-			displayedImageName = images.correctImage()
-		} else {
-			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
-			number = "The good answer for \(number) was \(koNumber(randNumber: Int(number)!))"
-			textColor = .red
-			displayedImageName = images.incorrectImage()
-		}
-	}
-	
 	var body: some View {
 		VStack {
 			playViewReusable(isImageHidden: $isImageHidden,
@@ -129,9 +90,8 @@ struct SinoNumberToKoreanPlay: View {
 							 numberLabel: $number,
 							 textColor: $textColor,
 							 inputAnswer: $inputAnswer,
-							 acceptButtonView: $acceptButtonView)
-		}.onAppear {
-			self.showSinoNewNumber()
+							 acceptButtonView: $acceptButtonView,
+							 continueState: $continueState)
 		}
 	}
 }

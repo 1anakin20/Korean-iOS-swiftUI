@@ -109,6 +109,48 @@ struct playViewReusable: View {
 	@Binding var inputAnswer: String
 	// The accept button children view
 	@Binding var acceptButtonView: AnyView
+	// If the view is in the continue button view for the user to write the answer
+	@Binding var continueState: Bool
+	
+	//
+	func checkForContinue() {
+		isImageHidden.toggle()
+		if(continueState) {
+			// If the view is in continue button
+			showSinoNewNumber()
+			textColor = .black
+			continueState.toggle()
+		} else {
+			// If the view is not in the continue button
+			checkAnswer()
+			continueState.toggle()
+		}
+	}
+	
+	/// This function will reset the view for a new number
+	func showSinoNewNumber() {
+		inputAnswer = ""
+		numberLabel = showKoreanRandomNum()
+		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
+	}
+	
+	/// This function will check if the answer is correct or incorrect
+	func checkAnswer() {
+		let images = Images()
+		if(checkAnswerNumberToKorean(randNumber: Int(numberLabel)!, input: inputAnswer)) {
+			// If the answer is good
+			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
+			numberLabel = "That's the good answer"
+			textColor = .green
+			// Change the image to the correct one
+			displayedImageName = images.correctImage()
+		} else {
+			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
+			numberLabel = "The good answer for \(numberLabel) was \(koNumber(randNumber: Int(numberLabel)!))"
+			textColor = .red
+			displayedImageName = images.incorrectImage()
+		}
+	}
 	
 	var body: some View {
 		VStack(spacing: 50) {
@@ -129,11 +171,14 @@ struct playViewReusable: View {
 				// The accept button children view
 				acceptButtonView
 			}
+		}.onAppear {
+			self.showSinoNewNumber()
 		}
 		.position(x: 190, y: 100)
 		.padding()
 	}
 }
+
 
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
