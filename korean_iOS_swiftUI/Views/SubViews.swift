@@ -112,7 +112,7 @@ struct playViewReusable: View {
 	// If the view is in the continue button view for the user to write the answer
 	@Binding var continueState: Bool
 	
-	//
+	/// This function will check if the view is in the continueState button
 	func checkForContinue() {
 		isImageHidden.toggle()
 		if(continueState) {
