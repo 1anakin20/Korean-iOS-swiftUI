@@ -23,7 +23,6 @@
 		B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351DC2358D4AC00A3F4F6 /* playView.swift */; };
 		B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */; };
 		B3E351E12358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */; };
-		B3F3B30823A2B8B600B239DE /* NumbersCommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F3B30723A2B8B600B239DE /* NumbersCommonFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +66,6 @@
 		B3E351DC2358D4AC00A3F4F6 /* playView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playView.swift; sourceTree = "<group>"; };
 		B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViews.swift; sourceTree = "<group>"; };
 		B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoNumberToKoreanPlay.swift; sourceTree = "<group>"; };
-		B3F3B30723A2B8B600B239DE /* NumbersCommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersCommonFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				B3362BCC2399C26800BCAA70 /* images.swift */,
-				B3F3B30723A2B8B600B239DE /* NumbersCommonFunctions.swift */,
 				B383912C235F7131005EE147 /* SinoNumbers */,
 			);
 			path = Numbers;
@@ -337,7 +334,6 @@
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
 				B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */,
-				B3F3B30823A2B8B600B239DE /* NumbersCommonFunctions.swift in Sources */,
 				B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */,
 				B3E351E12358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift in Sources */,
 			);
