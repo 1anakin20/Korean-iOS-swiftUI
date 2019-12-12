@@ -8,7 +8,7 @@
 
 import UIKit
 
-// This class creates the sino-korean numbers
+/// This class creates the sino-korean numbers
 class SinoNumbersCreatorFunctions: NSObject {
 	// Functions values
 	// To create a random number between the user selected range

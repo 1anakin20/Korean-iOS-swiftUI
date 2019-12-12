@@ -15,12 +15,14 @@ func showKoreanRandomNum() -> String {
 	return randStringNumber
 }
 
+/// It will translate a decial number to korean
 func koNumber(randNumber: Int) -> String {
 	let numbersCreator = SinoNumbersCreatorFunctions()
 	let koNumber = numbersCreator.numberDecimaltoStringKorean(decimalNumber: randNumber)
 	return koNumber
 }
 
+/// this function will take the input of the textField and will check if rhe input is equal to the random number
 func checkAnswerNumberToKorean(randNumber: Int, input: String) -> Bool {
 //	let numbersCreator = SinoNumbersCreatorFunctions()
 //	let koNumber = numbersCreator.numberDecimaltoStringKorean(decimalNumber: randNumber)
