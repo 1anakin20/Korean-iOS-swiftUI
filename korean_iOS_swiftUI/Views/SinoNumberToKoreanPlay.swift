@@ -8,71 +8,6 @@
 
 import SwiftUI
 
-/// This presents the navigation links for Korean to english and english to korean, it also shows an option button in the navigation bar to the option view
-struct SinoNumberToKoreanMenu: View {
-	@State private var showOptions: Bool = false
-	var body: some View {
-		VStack(spacing: 30) {
-			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(SinoNumberToKoreanPlay()))
-		}
-		.navigationBarItems(trailing:
-			Button("Options") {
-				// Present view options
-				self.showOptions = true
-			}.sheet(isPresented: self.$showOptions) {
-				SinoOptionsNumbers()
-			}
-		)
-	}
-}
-
-
-/// This option modal view will determine the max and min of the random numbers
-struct SinoOptionsNumbers: View {
-	@State var maximumNumber: String = ""
-	@State var minimumNumber: String = ""
-	
-	/// This function saves the values after clicking save in the options view
-	func saveValuesNumber() {
-		UserSettingsDefaultsSinoNumberToKorean().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
-	}
-	
-	func setValues() {
-		maximumNumber = String(UserSettingsDefaultsSinoNumberToKorean().checkMax())
-		minimumNumber = String(UserSettingsDefaultsSinoNumberToKorean().checkMin())
-	}
-	
-	var body: some View {
-		VStack(spacing: 50) {
-			Button(action: {
-				self.saveValuesNumber()
-			}) {
-				Text("Save")
-			}
-			HStack {
-				Text("Maximum number")
-				Spacer()
-				TextField("Max", text: $maximumNumber)
-					.frame(width: 55)
-			}
-			HStack {
-				Text("Minimum number")
-				Spacer()
-				TextField("Minimum number", text: $minimumNumber)
-					.frame(width: 55)
-			}
-		}
-		.onAppear {
-			self.setValues()
-		}
-		.textFieldStyle(RoundedBorderTextFieldStyle())
-		.multilineTextAlignment(.center)
-		.keyboardType(.numberPad)
-		.padding()
-		.offset(y: -170)
-	}
-}
-
 /// This view will present numbers and the user will write them in Korean
 struct SinoNumberToKoreanPlay: View {
 	@State private var inputAnswer: String = ""
@@ -91,7 +26,9 @@ struct SinoNumberToKoreanPlay: View {
 							 textColor: $textColor,
 							 inputAnswer: $inputAnswer,
 							 acceptButtonView: $acceptButtonView,
-							 continueState: $continueState)
+							 continueState: $continueState,
+							 // False because the label will show a number
+							 koreanOrNumber: false)
 		}
 	}
 }
