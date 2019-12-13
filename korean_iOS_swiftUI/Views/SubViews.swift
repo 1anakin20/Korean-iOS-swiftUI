@@ -182,9 +182,12 @@ struct playViewReusable: View {
 				.padding()
 				.foregroundColor(textColor)
 			HStack {
-				TextField("Answer", text: $inputAnswer)
-					.textFieldStyle(RoundedBorderTextFieldStyle())
-					.disableAutocorrection(true)
+				if(koreanOrNumber) {
+					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .numberPad)
+				} else {
+					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .default)
+				}
+				
 				// The accept button children view
 				acceptButtonView
 			}
@@ -193,6 +196,20 @@ struct playViewReusable: View {
 		}
 		.position(x: 190, y: 100)
 		.padding()
+	}
+}
+
+/// text field view that offers a customisable keyboard type
+struct customKeyboardTextField: View {
+	// input of the text field
+	@Binding var inputAnswer: String
+	// The custom keyboard type
+	var keyboardType: UIKeyboardType
+	var body: some View {
+		TextField("Answer", text: $inputAnswer)
+			.textFieldStyle(RoundedBorderTextFieldStyle())
+			.disableAutocorrection(true)
+			.keyboardType(keyboardType)
 	}
 }
 

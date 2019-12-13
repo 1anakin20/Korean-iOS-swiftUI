@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// This view will present numbers in Korean and the user will write them in numbers
 struct SinoKoreanToNumberPlay: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
@@ -25,7 +26,7 @@ struct SinoKoreanToNumberPlay: View {
 						 inputAnswer: $inputAnswer,
 						 acceptButtonView: $acceptButtonView,
 						 continueState: $continueState,
-						 // True because the label will be in Korean
+						 // True because the label will be in Korean and the input will be numbers
 						 koreanOrNumber: true)
 	}
 }
