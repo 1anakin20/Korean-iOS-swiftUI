@@ -14,6 +14,7 @@ struct SinoNumberToKoreanMenu: View {
 	var body: some View {
 		VStack(spacing: 30) {
 			longNavigationLink(backgroundColor: .purple, text: "Number to Korean", destination: AnyView(SinoNumberToKoreanPlay()))
+			longNavigationLink(backgroundColor: .purple, text: "Korean to number", destination: AnyView(SinoKoreanToNumberPlay()))
 		}
 		.navigationBarItems(trailing:
 			Button("Options") {
@@ -74,7 +75,7 @@ struct SinoOptionsNumbers: View {
 
 
 struct playMeny_Previews: PreviewProvider {
-    static var previews: some View {
-        SinoOptionsNumbers()
-    }
+	static var previews: some View {
+		SinoOptionsNumbers()
+	}
 }

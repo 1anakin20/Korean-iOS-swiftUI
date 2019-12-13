@@ -29,8 +29,11 @@ struct squareNavigationLink: View {
 
 /// This is a rectangular navigation link, note that the destination parameter requires of type "AnyView". So cast the view to "AnyView". AnyView(view()).
 struct longNavigationLink: View {
+	// The background of the button
 	var backgroundColor: Color?
+	// The text
 	var text: String?
+	// Which view will it go to
 	var destination: AnyView?
 	var body: some View {
 		NavigationLink(destination: destination) {
