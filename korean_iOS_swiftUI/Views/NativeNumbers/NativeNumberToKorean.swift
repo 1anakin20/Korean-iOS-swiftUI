@@ -17,6 +17,13 @@ struct NativeNumberToKorean: View {
 	@State private var isImageHidden: Bool = true
 	@State private var displayedImageName: String = "grandma1"
 	
+	func showNativeNewNumber() {
+		let creatorFunctions = NativeNumbersCreatorFunctions()
+		let randomNumber = creatorFunctions.nativeRandomNumber()
+		inputAnswer = ""
+		numberLabel
+	}
+	
 	
     var body: some View {
         generalPlayView(isImageHidden: $isImageHidden,

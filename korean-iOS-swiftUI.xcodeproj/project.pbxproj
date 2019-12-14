@@ -121,7 +121,9 @@
 		B37BDC4D23A4698700532835 /* code */ = {
 			isa = PBXGroup;
 			children = (
-				B383912C235F7131005EE147 /* SinoNumbers */,
+				B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */,
+				B383912D235F7154005EE147 /* options.swift */,
+				B38F67F52369FB4C0092C26B /* viewFunctions.swift */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -152,16 +154,6 @@
 				B37BDC4923A4654200532835 /* NativeNumbers */,
 			);
 			path = code;
-			sourceTree = "<group>";
-		};
-		B383912C235F7131005EE147 /* SinoNumbers */ = {
-			isa = PBXGroup;
-			children = (
-				B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */,
-				B383912D235F7154005EE147 /* options.swift */,
-				B38F67F52369FB4C0092C26B /* viewFunctions.swift */,
-			);
-			path = SinoNumbers;
 			sourceTree = "<group>";
 		};
 		B3E03DC6239598F900079D19 /* Views */ = {
