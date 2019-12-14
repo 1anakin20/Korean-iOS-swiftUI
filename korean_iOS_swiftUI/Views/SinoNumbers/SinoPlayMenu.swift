@@ -76,6 +76,6 @@ struct SinoOptionsNumbers: View {
 
 struct playMeny_Previews: PreviewProvider {
 	static var previews: some View {
-		SinoOptionsNumbers()
+		SinoNumberToKoreanMenu()
 	}
 }

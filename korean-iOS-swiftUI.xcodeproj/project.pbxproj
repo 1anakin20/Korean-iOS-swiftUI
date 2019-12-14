@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		B3362BCD2399C26800BCAA70 /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCC2399C26800BCAA70 /* images.swift */; };
 		B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */; };
+		B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */; };
 		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
 		B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */; };
 		B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F52369FB4C0092C26B /* viewFunctions.swift */; };
-		B395C8E123A407EB00346677 /* playMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B395C8E023A407EB00346677 /* playMenu.swift */; };
+		B395C8E123A407EB00346677 /* SinoPlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B395C8E023A407EB00346677 /* SinoPlayMenu.swift */; };
 		B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */; };
 		B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */; };
 		B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351B023578B4500A3F4F6 /* ContentView.swift */; };
@@ -46,10 +47,11 @@
 /* Begin PBXFileReference section */
 		B3362BCC2399C26800BCAA70 /* images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 		B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoKoreanToNumberPlay.swift; sourceTree = "<group>"; };
+		B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinoNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B38F67F52369FB4C0092C26B /* viewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewFunctions.swift; sourceTree = "<group>"; };
-		B395C8E023A407EB00346677 /* playMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playMenu.swift; sourceTree = "<group>"; };
+		B395C8E023A407EB00346677 /* SinoPlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoPlayMenu.swift; sourceTree = "<group>"; };
 		B39C63E3235D099A008D6376 /* korean_iOS_swiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = korean_iOS_swiftUI.entitlements; sourceTree = "<group>"; };
 		B3E351A923578B4500A3F4F6 /* korean_iOS_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = korean_iOS_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,10 +97,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B37BDC4923A4654200532835 /* NativeNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */,
+			);
+			path = NativeNumbers;
+			sourceTree = "<group>";
+		};
+		B37BDC4C23A4695B00532835 /* SinoNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				B395C8E023A407EB00346677 /* SinoPlayMenu.swift */,
+				B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */,
+				B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */,
+				B37BDC4D23A4698700532835 /* code */,
+			);
+			path = SinoNumbers;
+			sourceTree = "<group>";
+		};
+		B37BDC4D23A4698700532835 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				B383912C235F7131005EE147 /* SinoNumbers */,
+			);
+			path = code;
+			sourceTree = "<group>";
+		};
+		B37BDC4E23A469A500532835 /* NativeNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				B383912B235F70B1005EE147 /* code */,
+			);
+			path = NativeNumbers;
+			sourceTree = "<group>";
+		};
 		B383912B235F70B1005EE147 /* code */ = {
 			isa = PBXGroup;
 			children = (
-				B3CE9059236B51C90034FA05 /* Numbers */,
+				B37BDC4923A4654200532835 /* NativeNumbers */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -113,25 +150,15 @@
 			path = SinoNumbers;
 			sourceTree = "<group>";
 		};
-		B3CE9059236B51C90034FA05 /* Numbers */ = {
-			isa = PBXGroup;
-			children = (
-				B3362BCC2399C26800BCAA70 /* images.swift */,
-				B383912C235F7131005EE147 /* SinoNumbers */,
-			);
-			path = Numbers;
-			sourceTree = "<group>";
-		};
 		B3E03DC6239598F900079D19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B3E351B023578B4500A3F4F6 /* ContentView.swift */,
 				B3E351DC2358D4AC00A3F4F6 /* playView.swift */,
-				B395C8E023A407EB00346677 /* playMenu.swift */,
-				B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */,
-				B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */,
 				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
-				B383912B235F70B1005EE147 /* code */,
+				B3362BCC2399C26800BCAA70 /* images.swift */,
+				B37BDC4C23A4695B00532835 /* SinoNumbers */,
+				B37BDC4E23A469A500532835 /* NativeNumbers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,13 +357,14 @@
 			files = (
 				B383912E235F7154005EE147 /* options.swift in Sources */,
 				B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */,
+				B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */,
 				B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */,
 				B3362BCD2399C26800BCAA70 /* images.swift in Sources */,
 				B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */,
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
-				B395C8E123A407EB00346677 /* playMenu.swift in Sources */,
+				B395C8E123A407EB00346677 /* SinoPlayMenu.swift in Sources */,
 				B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */,
 				B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */,
 				B3E351E12358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift in Sources */,
