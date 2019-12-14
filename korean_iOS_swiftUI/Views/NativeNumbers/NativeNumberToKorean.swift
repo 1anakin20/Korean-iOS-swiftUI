@@ -16,28 +16,42 @@ struct NativeNumberToKorean: View {
 	@State private var textColor: Color = .black
 	@State private var isImageHidden: Bool = true
 	@State private var displayedImageName: String = "grandma1"
+	/**
+	If the if value is true:
+	it means the label will show a number in Korean.
+	Then the user will need to write the answer in numeral
+	
+	If the value is false:
+	the label will show a numeral.
+	Then the user will need to write it in Korean
+	**/
+	var koreanOrNumber: Bool
 	
 	func showNativeNewNumber() {
 		let creatorFunctions = NativeNumbersCreatorFunctions()
 		let randomNumber = creatorFunctions.nativeRandomNumber()
 		inputAnswer = ""
-		numberLabel
+		number = koreanOrNumber ? nativeKoreanNumber(randNumber: randomNumber) : nativeNumberNumeral(randNumber: randomNumber)
 	}
 	
 	
-    var body: some View {
-        generalPlayView(isImageHidden: $isImageHidden,
-						displayedImageName: $displayedImageName,
-						numberLabel: $number,
-						textColor: $textColor,
-						inputAnswer: $inputAnswer,
-						acceptButtonView: $acceptButtonView,
-						koreanOrNumber: false)
-    }
+	var body: some View {
+		Group {
+			generalPlayView(isImageHidden: $isImageHidden,
+							displayedImageName: $displayedImageName,
+							numberLabel: $number,
+							textColor: $textColor,
+							inputAnswer: $inputAnswer,
+							acceptButtonView: $acceptButtonView,
+							koreanOrNumber: false)
+		}.onAppear() {
+			self.showNativeNewNumber()
+		}
+	}
 }
 
 struct NumberToKorean_Previews: PreviewProvider {
-    static var previews: some View {
-        NativeNumberToKorean()
-    }
+	static var previews: some View {
+		NativeNumberToKorean(koreanOrNumber: true)
+	}
 }

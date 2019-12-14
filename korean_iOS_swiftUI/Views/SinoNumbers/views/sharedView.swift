@@ -32,6 +32,7 @@ struct SinoPlayView: View {
 	If the if value is true:
 	it means the label will show a number in Korean.
 	Then the user will need to write the answer in numeral
+	
 	If the value is false:
 	the label will show a numeral.
 	Then the user will need to write it in Korean
