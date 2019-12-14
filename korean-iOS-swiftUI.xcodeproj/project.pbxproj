@@ -10,6 +10,7 @@
 		B3362BCD2399C26800BCAA70 /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCC2399C26800BCAA70 /* images.swift */; };
 		B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */; };
 		B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */; };
+		B37BDC5023A46AAE00532835 /* NativeNumberToKorean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4F23A46AAE00532835 /* NativeNumberToKorean.swift */; };
 		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
 		B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */; };
 		B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F52369FB4C0092C26B /* viewFunctions.swift */; };
@@ -48,6 +49,7 @@
 		B3362BCC2399C26800BCAA70 /* images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 		B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoKoreanToNumberPlay.swift; sourceTree = "<group>"; };
 		B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
+		B37BDC4F23A46AAE00532835 /* NativeNumberToKorean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeNumberToKorean.swift; sourceTree = "<group>"; };
 		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinoNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B38F67F52369FB4C0092C26B /* viewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewFunctions.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		B37BDC4E23A469A500532835 /* NativeNumbers */ = {
 			isa = PBXGroup;
 			children = (
+				B37BDC4F23A46AAE00532835 /* NativeNumberToKorean.swift */,
 				B383912B235F70B1005EE147 /* code */,
 			);
 			path = NativeNumbers;
@@ -364,6 +367,7 @@
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playView.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
+				B37BDC5023A46AAE00532835 /* NativeNumberToKorean.swift in Sources */,
 				B395C8E123A407EB00346677 /* SinoPlayMenu.swift in Sources */,
 				B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */,
 				B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */,

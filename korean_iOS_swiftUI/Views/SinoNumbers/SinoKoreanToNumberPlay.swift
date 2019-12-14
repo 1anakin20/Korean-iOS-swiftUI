@@ -19,7 +19,7 @@ struct SinoKoreanToNumberPlay: View {
 	@State private var displayedImageName: String = "grandma1"
 	
 	var body: some View {
-		playViewReusable(isImageHidden: $isImageHidden,
+		SinoPlayView(isImageHidden: $isImageHidden,
 						 displayedImageName: $displayedImageName,
 						 numberLabel: $number,
 						 textColor: $textColor,

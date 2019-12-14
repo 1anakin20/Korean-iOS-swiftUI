@@ -20,7 +20,7 @@ struct SinoNumberToKoreanPlay: View {
 	
 	var body: some View {
 		VStack {
-			playViewReusable(isImageHidden: $isImageHidden,
+			SinoPlayView(isImageHidden: $isImageHidden,
 							 displayedImageName: $displayedImageName,
 							 numberLabel: $number,
 							 textColor: $textColor,

@@ -99,7 +99,7 @@ struct numbersImage: View {
 }
 
 /// Reusable configurable view for the play view
-struct playViewReusable: View {
+struct SinoPlayView: View {
 	// Should the image be displayed
 	@Binding var isImageHidden: Bool
 	// The name of the image to display
@@ -120,11 +120,11 @@ struct playViewReusable: View {
 	
 	/**
 	If the if value is true:
-		it means the label will show a number in Korean.
-		Then the user will need to write the answer in numeral
+	it means the label will show a number in Korean.
+	Then the user will need to write the answer in numeral
 	If the value is false:
-		the label will show a numeral.
-		Then the user will need to write it in Korean
+	the label will show a numeral.
+	Then the user will need to write it in Korean
 	**/
 	var koreanOrNumber: Bool
 	
@@ -173,28 +173,16 @@ struct playViewReusable: View {
 	}
 	
 	var body: some View {
-		VStack(spacing: 50) {
-			// To show or not to show, that is the question
-			// If the image should show or not
-			if(isImageHidden) {
-				numbersImage(imageName: displayedImageName).hidden()
-			} else {
-				numbersImage(imageName: displayedImageName)
-			}
-			Text("\(numberLabel)")
-				.padding()
-				.foregroundColor(textColor)
-			HStack {
-				if(koreanOrNumber) {
-					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .numberPad)
-				} else {
-					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .default)
-				}
-				
-				// The accept button children view
-				acceptButtonView
-			}
-		}.onAppear {
+		Group {
+			playView2(isImageHidden: $isImageHidden,
+					  displayedImageName: $displayedImageName,
+					  numberLabel: $numberLabel,
+					  textColor: $textColor,
+					  inputAnswer: $inputAnswer,
+					  acceptButtonView: $acceptButtonView,
+					  koreanOrNumber: koreanOrNumber)
+		}
+		.onAppear {
 			self.showSinoNewNumber()
 		}
 		.position(x: 190, y: 100)
@@ -220,5 +208,60 @@ struct customKeyboardTextField: View {
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
 		squareNavigationLink()
+	}
+}
+
+struct playView2: View {
+	// Should the image be displayed
+	@Binding var isImageHidden: Bool
+	// The name of the image to display
+	@Binding var displayedImageName: String
+	// The text in the label
+	@Binding var numberLabel: String
+	// The color of the text label
+	@Binding var textColor: Color
+	// The input of the text field
+	@Binding var inputAnswer: String
+	// The accept button children view
+	@Binding var acceptButtonView: AnyView
+	// If the view is in the continue button view for the user to write the answer
+//	@Binding var continueState: Bool
+	
+	// It will store the choosen random number
+//	@State var randomNumber: Int?
+	
+	/**
+	If the if value is true:
+	it means the label will show a number in Korean.
+	Then the user will need to write the answer in numeral
+	If the value is false:
+	the label will show a numeral.
+	Then the user will need to write it in Korean
+	**/
+	var koreanOrNumber: Bool
+	
+	var body: some View {
+		VStack(spacing: 50) {
+			// To show or not to show, that is the question
+			// If the image should show or not
+			if(isImageHidden) {
+				numbersImage(imageName: displayedImageName).hidden()
+			} else {
+				numbersImage(imageName: displayedImageName)
+			}
+			Text("\(numberLabel)")
+				.padding()
+				.foregroundColor(textColor)
+			HStack {
+				if(koreanOrNumber) {
+					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .numberPad)
+				} else {
+					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .default)
+				}
+				
+				// The accept button children view
+				acceptButtonView
+			}
+		}
 	}
 }
