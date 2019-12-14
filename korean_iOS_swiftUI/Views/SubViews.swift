@@ -29,8 +29,11 @@ struct squareNavigationLink: View {
 
 /// This is a rectangular navigation link, note that the destination parameter requires of type "AnyView". So cast the view to "AnyView". AnyView(view()).
 struct longNavigationLink: View {
+	// The background of the button
 	var backgroundColor: Color?
+	// The text
 	var text: String?
+	// Which view will it go to
 	var destination: AnyView?
 	var body: some View {
 		NavigationLink(destination: destination) {
@@ -112,6 +115,19 @@ struct playViewReusable: View {
 	// If the view is in the continue button view for the user to write the answer
 	@Binding var continueState: Bool
 	
+	// It will store the choosen random number
+	@State var randomNumber: Int?
+	
+	/**
+	If the if value is true:
+		it means the label will show a number in Korean.
+		Then the user will need to write the answer in numeral
+	If the value is false:
+		the label will show a numeral.
+		Then the user will need to write it in Korean
+	**/
+	var koreanOrNumber: Bool
+	
 	/// This function will check if the view is in the continueState button
 	func checkForContinue() {
 		isImageHidden.toggle()
@@ -129,15 +145,18 @@ struct playViewReusable: View {
 	
 	/// This function will reset the view for a new number
 	func showSinoNewNumber() {
+		let creatorFunctions = SinoNumbersCreatorFunctions()
+		randomNumber = creatorFunctions.randomNumberNumbersPlay()
 		inputAnswer = ""
-		numberLabel = showKoreanRandomNum()
+		numberLabel = koreanOrNumber ? showNumeralRandomNum(randNumber: randomNumber!) : showKoreanRandomNum(randNumber: randomNumber!)
 		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
 	}
 	
 	/// This function will check if the answer is correct or incorrect
 	func checkAnswer() {
 		let images = Images()
-		if(checkAnswerNumberToKorean(randNumber: Int(numberLabel)!, input: inputAnswer)) {
+		let functionToCallIf = koreanOrNumber ? checkAnswerKoreanToNumber(randNumber: randomNumber!, input: inputAnswer) : checkAnswerNumberToKorean(randNumber: randomNumber!, input: inputAnswer)
+		if(functionToCallIf) {
 			// If the answer is good
 			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
 			numberLabel = "That's the good answer"
@@ -146,7 +165,8 @@ struct playViewReusable: View {
 			displayedImageName = images.correctImage()
 		} else {
 			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
-			numberLabel = "The good answer for \(numberLabel) was \(koNumber(randNumber: Int(numberLabel)!))"
+			let correctAnswer = koreanOrNumber ? String(randomNumber!) : koNumber(randNumber: randomNumber!)
+			numberLabel = "The good answer for \(numberLabel) was \(correctAnswer)"
 			textColor = .red
 			displayedImageName = images.incorrectImage()
 		}
@@ -161,13 +181,16 @@ struct playViewReusable: View {
 			} else {
 				numbersImage(imageName: displayedImageName)
 			}
-			Text(numberLabel)
+			Text("\(numberLabel)")
 				.padding()
 				.foregroundColor(textColor)
 			HStack {
-				TextField("Answer", text: $inputAnswer)
-					.textFieldStyle(RoundedBorderTextFieldStyle())
-					.disableAutocorrection(true)
+				if(koreanOrNumber) {
+					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .numberPad)
+				} else {
+					customKeyboardTextField(inputAnswer: $inputAnswer, keyboardType: .default)
+				}
+				
 				// The accept button children view
 				acceptButtonView
 			}
@@ -176,6 +199,20 @@ struct playViewReusable: View {
 		}
 		.position(x: 190, y: 100)
 		.padding()
+	}
+}
+
+/// text field view that offers a customisable keyboard type
+struct customKeyboardTextField: View {
+	// input of the text field
+	@Binding var inputAnswer: String
+	// The custom keyboard type
+	var keyboardType: UIKeyboardType
+	var body: some View {
+		TextField("Answer", text: $inputAnswer)
+			.textFieldStyle(RoundedBorderTextFieldStyle())
+			.disableAutocorrection(true)
+			.keyboardType(keyboardType)
 	}
 }
 
