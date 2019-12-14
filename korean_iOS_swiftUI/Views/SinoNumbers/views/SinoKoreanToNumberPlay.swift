@@ -25,7 +25,7 @@ struct SinoKoreanToNumberPlay: View {
 						 textColor: $textColor,
 						 inputAnswer: $inputAnswer,
 						 acceptButtonView: $acceptButtonView,
-						 continueState: $continueState,
+						 continueState: continueState,
 						 // True because the label will be in Korean and the input will be numbers
 						 koreanOrNumber: true)
 	}

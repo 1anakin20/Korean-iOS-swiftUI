@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct NativeNumberToKorean: View {
+	@State private var inputAnswer: String = ""
+	@State private var number: String = ""
+	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
+	@State private var continueState: Bool = false
+	@State private var textColor: Color = .black
+	@State private var isImageHidden: Bool = true
+	@State private var displayedImageName: String = "grandma1"
+	
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        generalPlayView(isImageHidden: $isImageHidden,
+						displayedImageName: $displayedImageName,
+						numberLabel: $number,
+						textColor: $textColor,
+						inputAnswer: $inputAnswer,
+						acceptButtonView: $acceptButtonView,
+						koreanOrNumber: false)
     }
 }
 
