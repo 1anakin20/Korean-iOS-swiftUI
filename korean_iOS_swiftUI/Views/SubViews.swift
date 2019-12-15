@@ -169,6 +169,69 @@ struct customKeyboardTextField: View {
 	}
 }
 
+/// This option modal view will determine the max and min of the random numbers
+struct OptionsNumbers: View {
+	@State var maximumNumber: String = ""
+	@State var minimumNumber: String = ""
+	/**
+	If the value is true:
+	It's the Sino options
+	if the value is false:
+	it's the native options
+	**/
+	var sinoOrNative: Bool
+	
+	/// This function saves the values after clicking save in the options view
+	func saveValuesNumber() {
+		if(sinoOrNative) {
+			UserSettingsDefaultsSinoNumberToKorean().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
+		} else {
+			NativeUserDefaults().saveMaxMin(maxTextField: maximumNumber, minTextField: minimumNumber)
+		}
+	}
+	
+	func setValues() {
+		if(sinoOrNative) {
+			maximumNumber = String(UserSettingsDefaultsSinoNumberToKorean().checkMax())
+			minimumNumber = String(UserSettingsDefaultsSinoNumberToKorean().checkMin())
+		} else {
+			maximumNumber = String(NativeUserDefaults().nativeCheckMax())
+			minimumNumber = String(NativeUserDefaults().nativeCheckMin())
+		}
+	}
+	
+	var body: some View {
+		VStack(spacing: 50) {
+			Button(action: {
+				self.saveValuesNumber()
+			}) {
+				Text("Save")
+			}
+			HStack {
+				Text("Maximum number")
+				Spacer()
+				TextField("Max", text: $maximumNumber)
+					.frame(width: 55)
+			}
+			HStack {
+				Text("Minimum number")
+				Spacer()
+				TextField("Minimum number", text: $minimumNumber)
+					.frame(width: 55)
+			}
+		}
+		.onAppear {
+			self.setValues()
+		}
+		.textFieldStyle(RoundedBorderTextFieldStyle())
+		.multilineTextAlignment(.center)
+		.keyboardType(.numberPad)
+		.padding()
+		.offset(y: -170)
+	}
+}
+
+
 
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {

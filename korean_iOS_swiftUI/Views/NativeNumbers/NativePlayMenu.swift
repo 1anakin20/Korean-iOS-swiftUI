@@ -8,15 +8,28 @@
 
 import SwiftUI
 
+/// Native menu leading to the play and option viewsgi
 struct NativePlayMenu: View {
-    var body: some View {
-		// Destination has koreanOrNumber false for the time being, need to be changed
-		longNavigationLink(backgroundColor: .blue, text: "Number to Korean", destination: AnyView(nativeNumberToKoreanPlay()))
-    }
+	@State private var showOptions: Bool = false
+	var body: some View {
+		VStack(spacing: 30) {
+			// Destination has koreanOrNumber false for the time being, need to be changed
+			longNavigationLink(backgroundColor: .blue, text: "Number to Korean", destination: AnyView(nativeNumberToKoreanPlay()))
+			longNavigationLink(backgroundColor: .blue, text: "Korean to number", destination: AnyView(NativeKoreanToNumberPlay()))
+		}
+		.navigationBarItems(trailing:
+			Button("Options") {
+				// Present view options
+				self.showOptions = true
+			}.sheet(isPresented: self.$showOptions) {
+				OptionsNumbers(sinoOrNative: false)
+			}
+		)
+	}
 }
 
 struct NativePlayMenu_Previews: PreviewProvider {
-    static var previews: some View {
-        NativePlayMenu()
-    }
+	static var previews: some View {
+		NativePlayMenu()
+	}
 }

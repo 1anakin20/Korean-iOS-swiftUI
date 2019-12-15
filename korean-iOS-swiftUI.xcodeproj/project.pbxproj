@@ -10,12 +10,14 @@
 		B3362BCD2399C26800BCAA70 /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCC2399C26800BCAA70 /* images.swift */; };
 		B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */; };
 		B37449DF23A5DFE40084961C /* nativeNumberToKoreanPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37449DE23A5DFE40084961C /* nativeNumberToKoreanPlay.swift */; };
+		B37449E123A5E23D0084961C /* NativeKoreanToNumberPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37449E023A5E23D0084961C /* NativeKoreanToNumberPlay.swift */; };
+		B37449E323A5E65B0084961C /* nativeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37449E223A5E65B0084961C /* nativeOptions.swift */; };
 		B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */; };
 		B37BDC5023A46AAE00532835 /* nativeSharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4F23A46AAE00532835 /* nativeSharedView.swift */; };
 		B37BDC5523A46F4300532835 /* sinoSharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5423A46F4300532835 /* sinoSharedView.swift */; };
 		B37BDC5723A47B6300532835 /* NativeViewsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5623A47B6300532835 /* NativeViewsFunctions.swift */; };
 		B37BDC5923A4A1C700532835 /* NativePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5823A4A1C700532835 /* NativePlayMenu.swift */; };
-		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
+		B383912E235F7154005EE147 /* sinoOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* sinoOptions.swift */; };
 		B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */; };
 		B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F67F52369FB4C0092C26B /* viewFunctions.swift */; };
 		B395C8E123A407EB00346677 /* SinoPlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B395C8E023A407EB00346677 /* SinoPlayMenu.swift */; };
@@ -53,12 +55,14 @@
 		B3362BCC2399C26800BCAA70 /* images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 		B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoKoreanToNumberPlay.swift; sourceTree = "<group>"; };
 		B37449DE23A5DFE40084961C /* nativeNumberToKoreanPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeNumberToKoreanPlay.swift; sourceTree = "<group>"; };
+		B37449E023A5E23D0084961C /* NativeKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeKoreanToNumberPlay.swift; sourceTree = "<group>"; };
+		B37449E223A5E65B0084961C /* nativeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nativeOptions.swift; sourceTree = "<group>"; };
 		B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B37BDC4F23A46AAE00532835 /* nativeSharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeSharedView.swift; sourceTree = "<group>"; };
 		B37BDC5423A46F4300532835 /* sinoSharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinoSharedView.swift; sourceTree = "<group>"; };
 		B37BDC5623A47B6300532835 /* NativeViewsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeViewsFunctions.swift; sourceTree = "<group>"; };
 		B37BDC5823A4A1C700532835 /* NativePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativePlayMenu.swift; sourceTree = "<group>"; };
-		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
+		B383912D235F7154005EE147 /* sinoOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinoOptions.swift; sourceTree = "<group>"; };
 		B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinoNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
 		B38F67F52369FB4C0092C26B /* viewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewFunctions.swift; sourceTree = "<group>"; };
 		B395C8E023A407EB00346677 /* SinoPlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoPlayMenu.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */,
 				B37BDC5623A47B6300532835 /* NativeViewsFunctions.swift */,
+				B37449E223A5E65B0084961C /* nativeOptions.swift */,
 			);
 			path = NativeNumbers;
 			sourceTree = "<group>";
@@ -129,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B38F67F22368C34F0092C26B /* SinoNumbersCreatorFunctions.swift */,
-				B383912D235F7154005EE147 /* options.swift */,
+				B383912D235F7154005EE147 /* sinoOptions.swift */,
 				B38F67F52369FB4C0092C26B /* viewFunctions.swift */,
 			);
 			path = code;
@@ -140,6 +145,7 @@
 			children = (
 				B37BDC5823A4A1C700532835 /* NativePlayMenu.swift */,
 				B37449DE23A5DFE40084961C /* nativeNumberToKoreanPlay.swift */,
+				B37449E023A5E23D0084961C /* NativeKoreanToNumberPlay.swift */,
 				B37BDC4F23A46AAE00532835 /* nativeSharedView.swift */,
 				B383912B235F70B1005EE147 /* code */,
 			);
@@ -370,16 +376,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B383912E235F7154005EE147 /* options.swift in Sources */,
+				B383912E235F7154005EE147 /* sinoOptions.swift in Sources */,
 				B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */,
 				B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */,
 				B37BDC5723A47B6300532835 /* NativeViewsFunctions.swift in Sources */,
 				B3E351AD23578B4500A3F4F6 /* AppDelegate.swift in Sources */,
+				B37449E323A5E65B0084961C /* nativeOptions.swift in Sources */,
 				B3362BCD2399C26800BCAA70 /* images.swift in Sources */,
 				B3E351AF23578B4500A3F4F6 /* SceneDelegate.swift in Sources */,
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playMenu.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
+				B37449E123A5E23D0084961C /* NativeKoreanToNumberPlay.swift in Sources */,
 				B37449DF23A5DFE40084961C /* nativeNumberToKoreanPlay.swift in Sources */,
 				B37BDC5023A46AAE00532835 /* nativeSharedView.swift in Sources */,
 				B37BDC5923A4A1C700532835 /* NativePlayMenu.swift in Sources */,

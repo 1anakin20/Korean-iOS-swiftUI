@@ -8,9 +8,10 @@
 
 import SwiftUI
 
+/// This view will show numeral numbers and the user will write them in the native Korean system
 struct nativeNumberToKoreanPlay: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        nativePlayView(koreanOrNumber: false)
     }
 }
 
