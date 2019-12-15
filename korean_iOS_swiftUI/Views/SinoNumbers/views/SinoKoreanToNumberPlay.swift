@@ -10,14 +10,6 @@ import SwiftUI
 
 /// This view will present numbers in Korean and the user will write them in numbers
 struct SinoKoreanToNumberPlay: View {
-	@State private var inputAnswer: String = ""
-	@State private var number: String = ""
-	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
-	@State private var continueState: Bool = false
-	@State private var textColor: Color = .black
-	@State private var isImageHidden: Bool = true
-	@State private var displayedImageName: String = "grandma1"
-	
 	var body: some View {
 		// True because the label will be in Korean and the input will be numbers
 		SinoPlayView(koreanOrNumber: true)

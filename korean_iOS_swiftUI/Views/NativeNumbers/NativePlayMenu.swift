@@ -11,7 +11,7 @@ import SwiftUI
 struct NativePlayMenu: View {
     var body: some View {
 		// Destination has koreanOrNumber false for the time being, need to be changed
-		longNavigationLink(backgroundColor: .blue, text: "Number to Korean", destination: AnyView(nativePlayView(koreanOrNumber: false)))
+		longNavigationLink(backgroundColor: .blue, text: "Number to Korean", destination: AnyView(nativeNumberToKoreanPlay()))
     }
 }
 

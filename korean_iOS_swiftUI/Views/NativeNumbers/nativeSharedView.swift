@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// Reusable configurable native numbers play view
 struct nativePlayView: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
