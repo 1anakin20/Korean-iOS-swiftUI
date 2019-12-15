@@ -29,6 +29,14 @@ struct nativePlayView: View {
 	**/
 	var koreanOrNumber: Bool
 	
+	func checkForDarkMode() {
+		if (UITraitCollection.current.userInterfaceStyle == .dark) {
+			textColor = .white
+		} else {
+			textColor = .black
+		}
+	}
+	
 	func checkForContinue() {
 		isImageHidden.toggle()
 		if(continueState) {
@@ -49,6 +57,7 @@ struct nativePlayView: View {
 		inputAnswer = ""
 		number = koreanOrNumber ? nativeKoreanNumber(randNumber: randomNumber!) : nativeNumberNumeral(randNumber: randomNumber!)
 		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
+		checkForDarkMode()
 	}
 	
 	/// Check the answer for the native numbers
