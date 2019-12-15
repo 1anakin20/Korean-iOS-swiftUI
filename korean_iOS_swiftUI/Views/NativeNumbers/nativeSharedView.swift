@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct NativeNumberToKorean: View {
+struct nativePlayView: View {
 	@State private var inputAnswer: String = ""
 	@State private var number: String = ""
 	@State private var acceptButtonView: AnyView = AnyView(acceptButton())
@@ -90,6 +90,6 @@ struct NativeNumberToKorean: View {
 
 struct NumberToKorean_Previews: PreviewProvider {
 	static var previews: some View {
-		NativeNumberToKorean(koreanOrNumber: true)
+		nativePlayView(koreanOrNumber: true)
 	}
 }

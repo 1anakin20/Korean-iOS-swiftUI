@@ -11,19 +11,19 @@ import SwiftUI
 /// Reusable configurable view for the play view
 struct SinoPlayView: View {
 	// Should the image be displayed
-	@Binding var isImageHidden: Bool
+	@State var isImageHidden: Bool = true
 	// The name of the image to display
-	@Binding var displayedImageName: String
+	@State var displayedImageName: String = "grandma1"
 	// The text in the label
-	@Binding var numberLabel: String
+	@State var numberLabel: String = ""
 	// The color of the text label
-	@Binding var textColor: Color
+	@State var textColor: Color = .black
 	// The input of the text field
-	@Binding var inputAnswer: String
+	@State var inputAnswer: String = ""
 	// The accept button children view
-	@Binding var acceptButtonView: AnyView
+	@State var acceptButtonView: AnyView = AnyView(acceptButton())
 	// If the view is in the continue button view for the user to write the answer
-	@State var continueState: Bool
+	@State var continueState: Bool = false
 	
 	// It will store the choosen random number
 	@State var randomNumber: Int?

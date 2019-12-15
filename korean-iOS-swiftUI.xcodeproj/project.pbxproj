@@ -10,8 +10,8 @@
 		B3362BCD2399C26800BCAA70 /* images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCC2399C26800BCAA70 /* images.swift */; };
 		B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */; };
 		B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */; };
-		B37BDC5023A46AAE00532835 /* NativeNumberToKorean.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4F23A46AAE00532835 /* NativeNumberToKorean.swift */; };
-		B37BDC5523A46F4300532835 /* sharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5423A46F4300532835 /* sharedView.swift */; };
+		B37BDC5023A46AAE00532835 /* nativeSharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC4F23A46AAE00532835 /* nativeSharedView.swift */; };
+		B37BDC5523A46F4300532835 /* sinoSharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5423A46F4300532835 /* sinoSharedView.swift */; };
 		B37BDC5723A47B6300532835 /* NativeViewsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5623A47B6300532835 /* NativeViewsFunctions.swift */; };
 		B37BDC5923A4A1C700532835 /* NativePlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37BDC5823A4A1C700532835 /* NativePlayMenu.swift */; };
 		B383912E235F7154005EE147 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383912D235F7154005EE147 /* options.swift */; };
@@ -52,8 +52,8 @@
 		B3362BCC2399C26800BCAA70 /* images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = images.swift; sourceTree = "<group>"; };
 		B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoKoreanToNumberPlay.swift; sourceTree = "<group>"; };
 		B37BDC4A23A4657200532835 /* NativeNumbersCreatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeNumbersCreatorFunctions.swift; sourceTree = "<group>"; };
-		B37BDC4F23A46AAE00532835 /* NativeNumberToKorean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeNumberToKorean.swift; sourceTree = "<group>"; };
-		B37BDC5423A46F4300532835 /* sharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharedView.swift; sourceTree = "<group>"; };
+		B37BDC4F23A46AAE00532835 /* nativeSharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeSharedView.swift; sourceTree = "<group>"; };
+		B37BDC5423A46F4300532835 /* sinoSharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sinoSharedView.swift; sourceTree = "<group>"; };
 		B37BDC5623A47B6300532835 /* NativeViewsFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeViewsFunctions.swift; sourceTree = "<group>"; };
 		B37BDC5823A4A1C700532835 /* NativePlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativePlayMenu.swift; sourceTree = "<group>"; };
 		B383912D235F7154005EE147 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				B37BDC5823A4A1C700532835 /* NativePlayMenu.swift */,
-				B37BDC4F23A46AAE00532835 /* NativeNumberToKorean.swift */,
+				B37BDC4F23A46AAE00532835 /* nativeSharedView.swift */,
 				B383912B235F70B1005EE147 /* code */,
 			);
 			path = NativeNumbers;
@@ -149,7 +149,7 @@
 				B395C8E023A407EB00346677 /* SinoPlayMenu.swift */,
 				B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */,
 				B3362BCE2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift */,
-				B37BDC5423A46F4300532835 /* sharedView.swift */,
+				B37BDC5423A46F4300532835 /* sinoSharedView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -377,9 +377,9 @@
 				B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */,
 				B3E351DD2358D4AC00A3F4F6 /* playMenu.swift in Sources */,
 				B3E351B123578B4500A3F4F6 /* ContentView.swift in Sources */,
-				B37BDC5023A46AAE00532835 /* NativeNumberToKorean.swift in Sources */,
+				B37BDC5023A46AAE00532835 /* nativeSharedView.swift in Sources */,
 				B37BDC5923A4A1C700532835 /* NativePlayMenu.swift in Sources */,
-				B37BDC5523A46F4300532835 /* sharedView.swift in Sources */,
+				B37BDC5523A46F4300532835 /* sinoSharedView.swift in Sources */,
 				B395C8E123A407EB00346677 /* SinoPlayMenu.swift in Sources */,
 				B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */,
 				B38F67F32368C34F0092C26B /* SinoNumbersCreatorFunctions.swift in Sources */,

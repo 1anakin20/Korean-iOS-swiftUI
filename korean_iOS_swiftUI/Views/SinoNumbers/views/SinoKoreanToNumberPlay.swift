@@ -19,15 +19,8 @@ struct SinoKoreanToNumberPlay: View {
 	@State private var displayedImageName: String = "grandma1"
 	
 	var body: some View {
-		SinoPlayView(isImageHidden: $isImageHidden,
-						 displayedImageName: $displayedImageName,
-						 numberLabel: $number,
-						 textColor: $textColor,
-						 inputAnswer: $inputAnswer,
-						 acceptButtonView: $acceptButtonView,
-						 continueState: continueState,
-						 // True because the label will be in Korean and the input will be numbers
-						 koreanOrNumber: true)
+		// True because the label will be in Korean and the input will be numbers
+		SinoPlayView(koreanOrNumber: true)
 	}
 }
 
