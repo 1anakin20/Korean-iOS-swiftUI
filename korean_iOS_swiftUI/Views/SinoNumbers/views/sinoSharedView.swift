@@ -24,10 +24,8 @@ struct SinoPlayView: View {
 	@State var acceptButtonView: AnyView = AnyView(acceptButton())
 	// If the view is in the continue button view for the user to write the answer
 	@State var continueState: Bool = false
-	
 	// It will store the choosen random number
 	@State var randomNumber: Int?
-	
 	/**
 	If the if value is true:
 	it means the label will show a number in Korean.
@@ -39,13 +37,20 @@ struct SinoPlayView: View {
 	**/
 	var koreanOrNumber: Bool
 	
+	func checkForDarkMode() {
+		if (UITraitCollection.current.userInterfaceStyle == .dark) {
+			textColor = .white
+		} else {
+			textColor = .black
+		}
+	}
+	
 	/// This function will check if the view is in the continueState button
 	func checkForContinue() {
 		isImageHidden.toggle()
 		if(continueState) {
 			// If the view is in continue button
 			showSinoNewNumber()
-			textColor = .black
 			continueState.toggle()
 		} else {
 			// If the view is not in the continue button
@@ -61,6 +66,7 @@ struct SinoPlayView: View {
 		inputAnswer = ""
 		numberLabel = koreanOrNumber ? showNumeralRandomNum(randNumber: randomNumber!) : showKoreanRandomNum(randNumber: randomNumber!)
 		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
+		checkForDarkMode()
 	}
 	
 	/// This function will check if the answer is correct or incorrect

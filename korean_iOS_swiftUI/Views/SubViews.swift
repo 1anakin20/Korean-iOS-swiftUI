@@ -55,8 +55,25 @@ struct acceptButton: View {
 	var body: some View {
 		Button(action: action) {
 			Text("Accept")
-				.foregroundColor(.black)
+			.modifier(darkModeColor())
 		}
+	}
+}
+
+struct darkModeColor: ViewModifier {
+	@Environment(\.colorScheme) var colorScheme: ColorScheme
+	
+	func checkColorScheme() -> Color {
+		if(colorScheme == .light) {
+			return .black
+		} else {
+			return .white
+		}
+	}
+	
+	func body(content: Content) -> some View {
+		content
+			.foregroundColor(checkColorScheme())
 	}
 }
 
@@ -113,11 +130,6 @@ struct generalPlayView: View {
 	@Binding var inputAnswer: String
 	// The accept button children view
 	@Binding var acceptButtonView: AnyView
-	// If the view is in the continue button view for the user to write the answer
-//	@Binding var continueState: Bool
-	
-	// It will store the choosen random number
-//	@State var randomNumber: Int?
 	
 	/**
 	If the if value is true:
