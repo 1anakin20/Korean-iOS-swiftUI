@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-/// Native menu leading to the play and option viewsgi
+/// Native menu leading to the play and option views
 struct NativePlayMenu: View {
 	@State private var showOptions: Bool = false
 	var body: some View {

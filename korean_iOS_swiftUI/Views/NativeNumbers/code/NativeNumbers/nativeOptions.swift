@@ -31,13 +31,6 @@ class NativeUserDefaults: NSObject {
 		let intMin = defaults.integer(forKey: nativeMinKey)
 		return intMin
 	}
-	
-//	func textFieldToInt(fromtextField: UITextField) -> Int {
-//		guard let text = fromtextField.text, let intNumber = Int(text) else {
-//			return 1
-//		}
-//		return intNumber
-//	}
 }
 
 

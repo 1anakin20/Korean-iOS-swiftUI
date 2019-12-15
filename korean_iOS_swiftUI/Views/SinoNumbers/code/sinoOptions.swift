@@ -79,7 +79,6 @@ func firstLaunchDefaultValues() {
 		UserSettingsDefaultsSinoNumberToKorean().defaults.set(100, forKey: sinoMaxKey)
 		UserSettingsDefaultsSinoNumberToKorean().defaults.set(1, forKey: sinoMinKey)
 		
-		//		 The native numbers have not yet been added
 		// Native numbers
 		let nativeUserSettings = NativeUserDefaults()
 		let nativeMaxKey = nativeUserSettings.nativeMaxKey
