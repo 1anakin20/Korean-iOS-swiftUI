@@ -76,7 +76,7 @@ struct SinoPlayView: View {
 			displayedImageName = images.correctImage()
 		} else {
 			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
-			let correctAnswer = koreanOrNumber ? String(randomNumber!) : koNumber(randNumber: randomNumber!)
+			let correctAnswer = koreanOrNumber ? String(randomNumber!) : sinoKoNumber(randNumber: randomNumber!)
 			numberLabel = "The good answer for \(numberLabel) was \(correctAnswer)"
 			textColor = .red
 			displayedImageName = images.incorrectImage()

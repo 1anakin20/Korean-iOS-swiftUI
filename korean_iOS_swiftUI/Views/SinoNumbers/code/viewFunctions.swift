@@ -20,12 +20,12 @@ func showKoreanRandomNum(randNumber: Int) -> String {
 
 /// show Korean number
 func showNumeralRandomNum(randNumber: Int) -> String {
-	let koreanNumber = koNumber(randNumber: randNumber)
+	let koreanNumber = sinoKoNumber(randNumber: randNumber)
 	return koreanNumber
 }
 
 /// It will translate a decimal number to korean
-func koNumber(randNumber: Int) -> String {
+func sinoKoNumber(randNumber: Int) -> String {
 	let numbersCreator = SinoNumbersCreatorFunctions()
 	let koNumber = numbersCreator.numberDecimaltoStringKorean(decimalNumber: randNumber)
 	return koNumber
@@ -35,7 +35,7 @@ func koNumber(randNumber: Int) -> String {
 func checkAnswerNumberToKorean(randNumber: Int, input: String) -> Bool {
 //	let numbersCreator = SinoNumbersCreatorFunctions()
 //	let koNumber = numbersCreator.numberDecimaltoStringKorean(decimalNumber: randNumber)
-	if(input == koNumber(randNumber: randNumber)) {
+	if(input == sinoKoNumber(randNumber: randNumber)) {
 		// The answer was good
 		return true
 	} else {
@@ -44,8 +44,7 @@ func checkAnswerNumberToKorean(randNumber: Int, input: String) -> Bool {
 	}
 }
 
-/// write the comment of this function later, in short label is korean the input is numeral and by magic it checks the answer
-/// this function will take the input of the text field and will
+/// this function check the number for a numeric input when the label shows a Korean number
 func checkAnswerKoreanToNumber(randNumber: Int, input: String) -> Bool {
 //	let numbersCreators = SinoNumbersCreatorFunctions()
 //	let koreanNumber = numbersCreators.numberDecimaltoStringKorean(decimalNumber: randNumber)

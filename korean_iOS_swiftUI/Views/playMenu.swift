@@ -9,12 +9,12 @@
 import SwiftUI
 
 /// This view contains the navigation links that will provide access to other views
-struct playView: View {
+struct playMenu: View {
 	var body: some View {
 		NavigationView {
 			VStack(spacing: 30) {
 				squareNavigationLink(backgroundColor: .purple, text: "Sino-Korean numbers", destination: AnyView(SinoNumberToKoreanMenu()))
-				squareNavigationLink(backgroundColor: .blue, text: "Native-Korean numbers")
+				squareNavigationLink(backgroundColor: .blue, text: "Native-Korean numbers", destination: AnyView(NativePlayMenu()))
 				squareNavigationLink(backgroundColor: .green, text: "Vocabulary")
 			}
 		}
@@ -23,6 +23,6 @@ struct playView: View {
 
 struct playView_Previews: PreviewProvider {
 	static var previews: some View {
-		playView()
+		playMenu()
 	}
 }

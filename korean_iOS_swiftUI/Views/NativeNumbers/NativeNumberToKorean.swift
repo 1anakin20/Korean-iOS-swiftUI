@@ -16,6 +16,7 @@ struct NativeNumberToKorean: View {
 	@State private var textColor: Color = .black
 	@State private var isImageHidden: Bool = true
 	@State private var displayedImageName: String = "grandma1"
+	@State var randomNumber: Int?
 	/**
 	If the if value is true:
 	it means the label will show a number in Korean.
@@ -27,11 +28,46 @@ struct NativeNumberToKorean: View {
 	**/
 	var koreanOrNumber: Bool
 	
+	func checkForContinue() {
+		isImageHidden.toggle()
+		if(continueState) {
+			// If the view is in continue button
+			showNativeNewNumber()
+			textColor = .black
+			continueState.toggle()
+		} else {
+			// If the view is not in the continue button
+			nativeCheckAnswer()
+			continueState.toggle()
+		}
+	}
+	
 	func showNativeNewNumber() {
 		let creatorFunctions = NativeNumbersCreatorFunctions()
-		let randomNumber = creatorFunctions.nativeRandomNumber()
+		randomNumber = creatorFunctions.nativeRandomNumber()
 		inputAnswer = ""
-		number = koreanOrNumber ? nativeKoreanNumber(randNumber: randomNumber) : nativeNumberNumeral(randNumber: randomNumber)
+		number = koreanOrNumber ? nativeKoreanNumber(randNumber: randomNumber!) : nativeNumberNumeral(randNumber: randomNumber!)
+		acceptButtonView = AnyView(acceptButton(action: checkForContinue))
+	}
+	
+	/// Check the answer for the native numbers
+	func nativeCheckAnswer() {
+		let images = Images()
+		let functionToCallIf = koreanOrNumber ? nativeCheckKoreanToNumber(randomNumber: randomNumber!, input: inputAnswer) : nativeCheckAnswerNumberToKorean(randomNumber: randomNumber!, input: inputAnswer)
+		if(functionToCallIf) {
+			// If the answer is good
+			acceptButtonView = AnyView(goodAnswerButton(action: checkForContinue))
+			number = "That's the good answer"
+			textColor = .green
+			// Change the image to the correct one
+			displayedImageName = images.correctImage()
+		} else {
+			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
+			let correctAnswer = koreanOrNumber ? String(randomNumber!) : sinoKoNumber(randNumber: randomNumber!)
+			number = "The good answer for \(number) was \(correctAnswer)"
+			textColor = .red
+			displayedImageName = images.incorrectImage()
+		}
 	}
 	
 	
@@ -43,10 +79,12 @@ struct NativeNumberToKorean: View {
 							textColor: $textColor,
 							inputAnswer: $inputAnswer,
 							acceptButtonView: $acceptButtonView,
-							koreanOrNumber: false)
+							koreanOrNumber: koreanOrNumber)
 		}.onAppear() {
 			self.showNativeNewNumber()
 		}
+		.position(x: 190, y: 100)
+		.padding()
 	}
 }
 
