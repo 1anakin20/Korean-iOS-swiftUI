@@ -20,36 +20,64 @@ import SwiftUI
 
 //struct choiceButtons: View {
 struct VocabularyEnglishToKorean: View {
-	@State private var koreanButtonText: [String] = ["안", "아니", "아", "ㅁ", "ㄴ", "ㅗ"]
+	@State private var koreanButtonText: [String]  = ["", "", ""]
 	@State private var correctAnswer = Int.random(in: 0...2)
 	@State private var textColor: Color = .black
 //	@State private var buttonToShow: AnyView = AnyView(acceptButton())
 	@State private var isAcceptButtonHidden: Bool = true
+	@State private var buttonListTextColor: Color = .blue
+	@State private var labelText: String = ""
 	
+	func getRandomArray() -> koreanWordsJson {
+		let wordArrays = parseJson()
+		let arrayMaxNumber = wordArrays.count
+		let randomNumber = Int.random(in: 0..<arrayMaxNumber)
+		let randomArray = wordArrays[randomNumber]
+		return randomArray
+	}
+	
+	func getEnglishWord() {
+		let randomArray = getRandomArray()
+		let englishWord = randomArray.fields[1]
+		print("English word: \(englishWord)")
+		print("korean Word: \(randomArray.fields[0])")
+		labelText = englishWord
+		makeKoreanWordsArray(randomArray: randomArray)
+	}
+	
+	func makeKoreanWordsArray(randomArray: koreanWordsJson) {
+		let correctWord = randomArray.fields[0]
+//		let firstNoCorrectWord = getRandomArray().fields[0]
+		let secondNoCorrectWord = getRandomArray().fields[0]
+		let thirdWord = getRandomArray().fields[0]
+		let arrayOfKoreanWords: [String] = [correctWord, secondNoCorrectWord, thirdWord].shuffled()
+		correctAnswer = arrayOfKoreanWords.firstIndex(of: correctWord)!
+//		correctAnswer = arrayOfKoreanWords.firstIndex(of: correctWord)!
+		koreanButtonText = arrayOfKoreanWords
+	}
 	/// Check the good button was checked
 	func vocabularyCheckAnswer(number: Int) {
 		isAcceptButtonHidden = false
 		if(number == correctAnswer) {
 			// Good answer
-//			buttonToShow = AnyView(goodAnswerButton(action: showNewWord))
 			textColor = .green
 		} else {
 			// Wrong answer
-//			buttonToShow = AnyView(wrongAnswerButton(action: showNewWord))
 			textColor = .red
 		}
 	}
 	
 	func showNewWord() {
 		koreanButtonText.shuffle()
-		correctAnswer = Int.random(in: 0...2)
+//		correctAnswer = Int.random(in: 0...2)
 		isAcceptButtonHidden = true
 		textColor = .black
+		getEnglishWord()
 	}
 	
 	var body: some View {
 		VStack(spacing : 10) {
-			Text(koreanButtonText[correctAnswer])
+			Text(labelText)
 				.foregroundColor(textColor)
 			VStack(spacing: 10) {
 				ForEach(0 ..< 3) { number in
@@ -57,6 +85,7 @@ struct VocabularyEnglishToKorean: View {
 						// Action to execute
 						self.vocabularyCheckAnswer(number: number)
 					}) {
+//						Text(self.koreanButtonText[number].fields[1])
 						Text(self.koreanButtonText[number])
 					}
 				}
