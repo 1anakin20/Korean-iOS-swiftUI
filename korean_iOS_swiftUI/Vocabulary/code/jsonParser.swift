@@ -9,7 +9,6 @@
 import UIKit
 
 struct koreanWordsJson: Codable {
-//	let __type__: String
 	let fields: [String]
 }
 
@@ -21,19 +20,7 @@ func parseJson() -> Array<koreanWordsJson> {
 		let vocabulary = try JSONDecoder().decode([koreanWordsJson].self, from: data)
 		return vocabulary
 	} catch {
-//		return [koreanWordsJson.init(from: ["Error in parseJson()"])]
 		print("Error parsing json: \(error)")
 		return error as! Array<koreanWordsJson>
 	}
 }
-
-//func printData() {
-//	let wordArrays = parseJson()
-//	let arrayMaxNumber = wordArrays.count
-//	let randomNumber = Int.random(in: 0..<arrayMaxNumber)
-//	let randomKoreanWord = wordArrays[randomNumber]
-//	let koreanWord = randomKoreanWord.fields[0]
-//	let englishWord = randomKoreanWord.fields[1]
-//	print("Korean word: \(koreanWord)")
-//	print("English word: \(englishWord)")
-//}
