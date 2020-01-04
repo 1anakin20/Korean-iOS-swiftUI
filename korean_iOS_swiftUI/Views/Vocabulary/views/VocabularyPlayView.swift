@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct VocabularyEnglishToKorean: View {
+struct VocabularyPlayView: View {
 	// 2D array containing the Korean words and english words choosed randomly
 	// index 0: korean words, index 1: English words
 	@State private var koreanAndEnglishWordsArray: [[String]] = [["", "", ""], ["", "", ""]]
@@ -18,6 +18,13 @@ struct VocabularyEnglishToKorean: View {
 	@State private var isAcceptButtonHidden: Bool = true
 	@State private var buttonListTextColor: Color = .blue
 	@State private var labelText: String = ""
+	/**
+		True:
+			The label shows the label in korean and the button are in english
+		False:
+			The label will be in English and the buttons in Korean
+	**/
+	var koreanOrEnglish: Bool
 	
 	/// This function will reset the view after pressing the continue button
 	func resetView() {
@@ -64,14 +71,14 @@ struct VocabularyEnglishToKorean: View {
 	
 	var body: some View {
 		VStack(spacing : 10) {
-			Text(self.koreanAndEnglishWordsArray[1][correctAnswer])
+			Text(koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
 				.foregroundColor(textColor)
 			VStack(spacing: 10) {
 				ForEach(0 ..< 3) { number in
 					Button(action: {
 						self.vocabularyCheckAnswer(number: number)
 					}) {
-						Text(self.koreanAndEnglishWordsArray[0][number])
+						Text(self.koreanOrEnglish ? self.koreanAndEnglishWordsArray[1][number] : self.koreanAndEnglishWordsArray[0][number])
 					}.disabled(!self.isAcceptButtonHidden)
 				}
 				Button(action: {
@@ -96,6 +103,6 @@ struct VocabularyEnglishToKorean: View {
 
 struct VocabularyEnglishToKorean_Previews: PreviewProvider {
 	static var previews: some View {
-		VocabularyEnglishToKorean()
+		VocabularyPlayView(koreanOrEnglish: true)
 	}
 }
