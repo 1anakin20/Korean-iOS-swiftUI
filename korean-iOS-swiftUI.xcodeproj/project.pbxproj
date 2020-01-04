@@ -1530,7 +1530,6 @@
 		B369CBCF23A9644500464168 /* movie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie.mp3; sourceTree = "<group>"; };
 		B369CEAE23A964D400464168 /* jsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jsonParser.swift; sourceTree = "<group>"; };
 		B369CEB323AAA03200464168 /* Korean_Vocabulary shorter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Korean_Vocabulary shorter.json"; sourceTree = "<group>"; };
-		B369CEB823AAA15A00464168 /* Korean_Vocabulary shorter.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "Korean_Vocabulary shorter.json"; path = "korean_iOS_swiftUI/Vocabulary/Korean vocabulary/Korean_Vocabulary shorter.json"; sourceTree = "<group>"; };
 		B37449DE23A5DFE40084961C /* nativeNumberToKoreanPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeNumberToKoreanPlay.swift; sourceTree = "<group>"; };
 		B37449E023A5E23D0084961C /* NativeKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeKoreanToNumberPlay.swift; sourceTree = "<group>"; };
 		B37449E223A5E65B0084961C /* nativeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nativeOptions.swift; sourceTree = "<group>"; };
@@ -1590,6 +1589,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B30C684723C02E4C00604647 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				B37BDC4C23A4695B00532835 /* SinoNumbers */,
+				B37BDC4E23A469A500532835 /* NativeNumbers */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
 		B369C8EE23A963FF00464168 /* Korean vocabulary */ = {
 			isa = PBXGroup;
 			children = (
@@ -2407,8 +2415,8 @@
 				B3E351DC2358D4AC00A3F4F6 /* playMenu.swift */,
 				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
 				B3362BCC2399C26800BCAA70 /* images.swift */,
-				B37BDC4C23A4695B00532835 /* SinoNumbers */,
-				B37BDC4E23A469A500532835 /* NativeNumbers */,
+				B30C684723C02E4C00604647 /* Numbers */,
+				B3FC4EB623A7FE1400A52C28 /* Vocabulary */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2416,7 +2424,6 @@
 		B3E351A023578B4500A3F4F6 = {
 			isa = PBXGroup;
 			children = (
-				B369CEB823AAA15A00464168 /* Korean_Vocabulary shorter.json */,
 				B3E351AB23578B4500A3F4F6 /* korean_iOS_swiftUI */,
 				B3E351C223578B4800A3F4F6 /* korean_iOS_swiftUITests */,
 				B3E351CD23578B4800A3F4F6 /* korean_iOS_swiftUIUITests */,
@@ -2441,7 +2448,6 @@
 				B3E351AC23578B4500A3F4F6 /* AppDelegate.swift */,
 				B3E351AE23578B4500A3F4F6 /* SceneDelegate.swift */,
 				B3E03DC6239598F900079D19 /* Views */,
-				B3FC4EB623A7FE1400A52C28 /* Vocabulary */,
 				B3E351B223578B4700A3F4F6 /* Assets.xcassets */,
 				B3E351B723578B4700A3F4F6 /* LaunchScreen.storyboard */,
 				B3E351BA23578B4700A3F4F6 /* Info.plist */,
