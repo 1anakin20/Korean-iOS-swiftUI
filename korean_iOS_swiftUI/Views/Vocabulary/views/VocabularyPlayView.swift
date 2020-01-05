@@ -87,26 +87,13 @@ struct choiceButton: View {
 			// Korean or English word label
 			Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
 			
-			// Maybe the for each loop will work, I could pass the index for the background color and touched button
 			// 3 buttons to choose the correct answer
-			Group {
+			ForEach(0..<3) { number in
 				Button(action: {
-					self.backgroundColorButton(buttonTapped: 0)
+					self.backgroundColorButton(buttonTapped: number)
 				}) {
-					Text(setArrayToUse(index: 0))
-						.modifier(buttonProperties(backgroundColor: $buttonBackgroundColors[0]))
-				}
-				Button(action: {
-					self.backgroundColorButton(buttonTapped: 1)
-				}) {
-					Text(setArrayToUse(index: 1))
-						.modifier(buttonProperties(backgroundColor: $buttonBackgroundColors[1]))
-				}
-				Button(action: {
-					self.backgroundColorButton(buttonTapped: 2)
-				}) {
-					Text(setArrayToUse(index: 2))
-						.modifier(buttonProperties(backgroundColor: $buttonBackgroundColors[2]))
+					Text(self.setArrayToUse(index: number))
+						.modifier(buttonProperties(backgroundColor: self.$buttonBackgroundColors[number]))
 				}
 			}.disabled(continueButton)
 			
@@ -120,19 +107,19 @@ struct choiceButton: View {
 			self.generateRandomArray()
 		}
 	}
-	
-	
-	/// Reusable view for buttons to choose the answer from, the background color is customizable
-	struct buttonProperties: ViewModifier {
-		@Binding var backgroundColor: Color
-		func body(content: Content) -> some View {
-			content
-				.foregroundColor(.white)
-				.frame(width: 300, height: 65)
-				.background(backgroundColor)
-				.cornerRadius(10)
-				.shadow(radius: 3, x: 0, y: 3)
-		}
+}
+
+
+/// Reusable view for buttons to choose the answer from, the background color is customizable
+struct buttonProperties: ViewModifier {
+	@Binding var backgroundColor: Color
+	func body(content: Content) -> some View {
+		content
+			.foregroundColor(.white)
+			.frame(width: 300, height: 65)
+			.background(backgroundColor)
+			.cornerRadius(10)
+			.shadow(radius: 3, x: 0, y: 3)
 	}
 }
 
