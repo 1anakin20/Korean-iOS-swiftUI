@@ -24,6 +24,18 @@ struct choiceButton: View {
 	**/
 	var koreanOrEnglish: Bool = false
 	
+	/// This string formater function will remove the <div> and </divs> tags
+	func stringFormater() {
+		for firstRowIndex in 0..<koreanAndEnglishWordsArray.count {
+			for secondRowIndex in 0..<koreanAndEnglishWordsArray[firstRowIndex].count {
+				// Remove the "<div>"
+				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] = koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex].replacingOccurrences(of: "<div>", with: " ")
+				// Remove the "</div>"
+				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] = koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex].replacingOccurrences(of: "</div>", with: " ")
+			}
+		}
+	}
+	
 	/// This function resets the view to a new word
 	func resetView() {
 		// Reset the colours of the buttons to gray
@@ -56,6 +68,7 @@ struct choiceButton: View {
 		koreanTemp.append(koreanWordsArray)
 		koreanTemp.append(englishWordsArray)
 		koreanAndEnglishWordsArray = koreanTemp
+		stringFormater()
 		correctAnswer = Int.random(in: 0...2)
 	}
 	
@@ -125,6 +138,6 @@ struct buttonProperties: ViewModifier {
 
 struct VocabularyEnglishToKorean_Previews: PreviewProvider {
 	static var previews: some View {
-		choiceButton(koreanOrEnglish: true)
+		choiceButton(koreanOrEnglish: false)
 	}
 }
