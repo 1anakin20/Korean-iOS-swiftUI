@@ -12,6 +12,7 @@ struct choiceButton: View {
 	@State var firstButtonBackgroundColor: Color = .gray
 	@State var secondButtonBackgroundColor: Color = .gray
 	@State var thirdButtonBackgroundColor: Color = .gray
+	@State var buttonBackgroundColors: [Color] = [.gray, .gray, .gray]
 	@State var continueButton: Bool = false
 	@State private var koreanAndEnglishWordsArray: [[String]] = [["", "", ""], ["", "", ""]]
 	@State var correctAnswer: Int = 0
@@ -25,9 +26,10 @@ struct choiceButton: View {
 	
 	/// This function resets the view to a new word
 	func resetView() {
-		firstButtonBackgroundColor = .gray
-		secondButtonBackgroundColor = .gray
-		thirdButtonBackgroundColor = .gray
+		// Reset the colours of the buttons to gray
+		for i in buttonBackgroundColors.indices {
+			buttonBackgroundColors[i] = .gray
+		}
 		generateRandomArray()
 		continueButton.toggle()
 	}
@@ -69,38 +71,14 @@ struct choiceButton: View {
 	/// If the answer is incorrect the background will be red and the correct answer will be in green
 	func backgroundColorButton(buttonTapped: Int) {
 		continueButton.toggle()
-		var backgroundColor: Color = .gray
 		
 		if(buttonTapped == correctAnswer) {
-			backgroundColor = .green
+			// The user tapped the correct answer
+			buttonBackgroundColors[buttonTapped] = .green
 		} else {
-			backgroundColor = .red
-		}
-		
-		switch buttonTapped {
-			case 0:
-				firstButtonBackgroundColor = backgroundColor
-			case 1:
-				secondButtonBackgroundColor = backgroundColor
-			case 2:
-				thirdButtonBackgroundColor = backgroundColor
-			default:
-				firstButtonBackgroundColor = backgroundColor
-				secondButtonBackgroundColor = backgroundColor
-				thirdButtonBackgroundColor = backgroundColor
-		}
-		
-		switch correctAnswer {
-			case 0:
-				firstButtonBackgroundColor = .green
-			case 1:
-				secondButtonBackgroundColor = .green
-			case 2:
-				thirdButtonBackgroundColor = .green
-			default:
-				firstButtonBackgroundColor = .gray
-				secondButtonBackgroundColor = .gray
-				thirdButtonBackgroundColor = .gray
+			// The user tapped the incorrect answer
+			buttonBackgroundColors[buttonTapped] = .red
+			buttonBackgroundColors[correctAnswer] = .green
 		}
 	}
 	
@@ -109,25 +87,26 @@ struct choiceButton: View {
 			// Korean or English word label
 			Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
 			
+			// Maybe the for each loop will work, I could pass the index for the background color and touched button
 			// 3 buttons to choose the correct answer
 			Group {
 				Button(action: {
 					self.backgroundColorButton(buttonTapped: 0)
 				}) {
 					Text(setArrayToUse(index: 0))
-						.modifier(buttonProperties(backgroundColor: $firstButtonBackgroundColor))
+						.modifier(buttonProperties(backgroundColor: $buttonBackgroundColors[0]))
 				}
 				Button(action: {
 					self.backgroundColorButton(buttonTapped: 1)
 				}) {
 					Text(setArrayToUse(index: 1))
-						.modifier(buttonProperties(backgroundColor: $secondButtonBackgroundColor))
+						.modifier(buttonProperties(backgroundColor: $buttonBackgroundColors[1]))
 				}
 				Button(action: {
 					self.backgroundColorButton(buttonTapped: 2)
 				}) {
 					Text(setArrayToUse(index: 2))
-						.modifier(buttonProperties(backgroundColor: $thirdButtonBackgroundColor))
+						.modifier(buttonProperties(backgroundColor: $buttonBackgroundColors[2]))
 				}
 			}.disabled(continueButton)
 			
@@ -141,23 +120,20 @@ struct choiceButton: View {
 			self.generateRandomArray()
 		}
 	}
-}
-
-/// Reusable view for buttons to choose the answer from, the background color is customizable
-struct buttonProperties: ViewModifier {
-	@Binding var backgroundColor: Color
-	func body(content: Content) -> some View {
-		content
-			.foregroundColor(.white)
-			.frame(width: 300, height: 65)
-			.background(backgroundColor)
-			.cornerRadius(10)
-			.shadow(radius: 3, x: 0, y: 3)
+	
+	
+	/// Reusable view for buttons to choose the answer from, the background color is customizable
+	struct buttonProperties: ViewModifier {
+		@Binding var backgroundColor: Color
+		func body(content: Content) -> some View {
+			content
+				.foregroundColor(.white)
+				.frame(width: 300, height: 65)
+				.background(backgroundColor)
+				.cornerRadius(10)
+				.shadow(radius: 3, x: 0, y: 3)
+		}
 	}
-}
-
-class TappedButton: ObservableObject {
-	@Published var tappedButton = 10
 }
 
 struct VocabularyEnglishToKorean_Previews: PreviewProvider {
