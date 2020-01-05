@@ -7,20 +7,31 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+//class audioPlayer {
+//	func checkForFinish() {
+//
+//	}
+//
+//	@objc func playerDidFinishPlaying(note: NSNotification) {
+//		print("Video Finished")
+//	}
+//}
 
 struct choiceButton: View {
-	@State var firstButtonBackgroundColor: Color = .gray
-	@State var secondButtonBackgroundColor: Color = .gray
-	@State var thirdButtonBackgroundColor: Color = .gray
-	@State var buttonBackgroundColors: [Color] = [.gray, .gray, .gray]
-	@State var continueButton: Bool = false
+	@State private var buttonBackgroundColors: [Color] = [.gray, .gray, .gray]
+	@State private var continueButton: Bool = true
 	@State private var koreanAndEnglishWordsArray: [[String]] = [["", "", ""], ["", "", ""]]
-	@State var correctAnswer: Int = 0
+	@State private var sounds: [String] = ["", "", ""]
+	@State private var correctAnswer: Int = 0
+	@State private var showSoundButton: Bool = false
+	@State private var koreanWordSound: AVAudioPlayer?
 	/**
 	True:
-	The label shows the label in korean and the button are in english
+	The label is in korean and the button are in english
 	False:
-	The label will be in English and the buttons in Korean
+	The label is in English and the buttons in Korean
 	**/
 	var koreanOrEnglish: Bool = false
 	
@@ -36,6 +47,33 @@ struct choiceButton: View {
 		}
 	}
 	
+	/// This function will get the sound of the corresponding Korean word in the label to play
+	func prepareSound() {
+		if(!koreanOrEnglish) {
+			if(!(sounds[correctAnswer] == "")) {
+				showSoundButton.toggle()
+				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "[sound:", with: "")
+				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "]", with: "")
+				let soundFile = sounds[correctAnswer]
+				let path = Bundle.main.path(forResource: soundFile, ofType: nil)!
+				let url = URL(fileURLWithPath: path)
+				do {
+					koreanWordSound = try AVAudioPlayer(contentsOf: url)
+					koreanWordSound?.prepareToPlay()
+//					audioPlayer().checkForFinish()
+					
+				} catch {
+					print("Problem with chooseSound()")
+				}
+			}
+		}
+	}
+	
+	func playSound() {
+//		NotificationCenter.default.addObserver(self, selector: #selector(audioPlayer.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+		koreanWordSound?.play()
+	}
+	
 	/// This function resets the view to a new word
 	func resetView() {
 		// Reset the colours of the buttons to gray
@@ -43,6 +81,7 @@ struct choiceButton: View {
 			buttonBackgroundColors[i] = .gray
 		}
 		generateRandomArray()
+		prepareSound()
 		continueButton.toggle()
 	}
 	
@@ -52,11 +91,15 @@ struct choiceButton: View {
 		let arrayWordCount = wordArrays.count
 		var koreanWordsArray: [String] = []
 		var englishWordsArray: [String] = []
-		for _ in 1...3 {
-			let randomNumberArray = Int.random(in: 0..<arrayWordCount)
+		var soundsArray: [String] = []
+		for _ in 0...2 {
+			// 0 is for debugging
+			let randomNumberArray = 0 // Int.random(in: 0..<arrayWordCount)
 			koreanWordsArray.append(wordArrays[randomNumberArray].fields[0])
 			englishWordsArray.append(wordArrays[randomNumberArray].fields[1])
+			soundsArray.append(wordArrays[randomNumberArray].fields[3])
 		}
+		sounds = soundsArray
 		// 2D array that contains the koreanWords
 		/*
 		koreanAndEnglishWordsArray[
@@ -69,7 +112,7 @@ struct choiceButton: View {
 		koreanTemp.append(englishWordsArray)
 		koreanAndEnglishWordsArray = koreanTemp
 		stringFormater()
-		correctAnswer = Int.random(in: 0...2)
+		correctAnswer = 0 // Int.random(in: 0...2)
 	}
 	
 	/// This function will return a string.
@@ -97,8 +140,15 @@ struct choiceButton: View {
 	
 	var body: some View {
 		VStack(spacing: 10) {
-			// Korean or English word label
-			Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
+			HStack {
+				// Korean or English word label
+				Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
+				Button(action: {
+					self.playSound()
+				}) {
+					Image(systemName: "play.fill")
+				}
+			}
 			
 			// 3 buttons to choose the correct answer
 			ForEach(0..<3) { number in
@@ -117,7 +167,7 @@ struct choiceButton: View {
 				Text("Continue")
 			}.disabled(!continueButton)
 		}.onAppear {
-			self.generateRandomArray()
+			self.resetView()
 		}
 	}
 }
