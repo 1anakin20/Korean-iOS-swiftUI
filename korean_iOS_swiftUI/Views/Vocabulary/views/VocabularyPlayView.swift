@@ -9,15 +9,16 @@
 import SwiftUI
 import AVFoundation
 
-//class audioPlayer {
-//	func checkForFinish() {
-//
-//	}
-//
-//	@objc func playerDidFinishPlaying(note: NSNotification) {
-//		print("Video Finished")
-//	}
-//}
+class audioPlayer: ObservableObject {
+	
+	func checkForFinish() {
+		
+	}
+	
+	@objc func playerDidFinishPlaying(note: NSNotification) {
+		print("Video Finished")
+	}
+}
 
 struct choiceButton: View {
 	@State private var buttonBackgroundColors: [Color] = [.gray, .gray, .gray]
@@ -59,8 +60,10 @@ struct choiceButton: View {
 				let url = URL(fileURLWithPath: path)
 				do {
 					koreanWordSound = try AVAudioPlayer(contentsOf: url)
-					koreanWordSound?.prepareToPlay()
-//					audioPlayer().checkForFinish()
+					DispatchQueue.global().async {
+						self.koreanWordSound?.prepareToPlay()
+					}
+					//					audioPlayer().checkForFinish()
 					
 				} catch {
 					print("Problem with chooseSound()")
@@ -70,8 +73,8 @@ struct choiceButton: View {
 	}
 	
 	func playSound() {
-//		NotificationCenter.default.addObserver(self, selector: #selector(audioPlayer.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-		koreanWordSound?.play()
+		//		NotificationCenter.default.addObserver(self, selector: #selector(audioPlayer.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+			self.koreanWordSound?.play()
 	}
 	
 	/// This function resets the view to a new word
