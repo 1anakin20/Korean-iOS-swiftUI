@@ -15,7 +15,7 @@ struct playMenu: View {
 			VStack(spacing: 30) {
 				squareNavigationLink(backgroundColor: .purple, text: "Sino-Korean numbers", destination: AnyView(SinoNumberToKoreanMenu()))
 				squareNavigationLink(backgroundColor: .blue, text: "Native-Korean numbers", destination: AnyView(NativePlayMenu()))
-				squareNavigationLink(backgroundColor: .green, text: "Vocabulary")
+				squareNavigationLink(backgroundColor: .green, text: "Vocabulary", destination: AnyView(VocabularyPlayView()))
 			}
 		}
 	}
