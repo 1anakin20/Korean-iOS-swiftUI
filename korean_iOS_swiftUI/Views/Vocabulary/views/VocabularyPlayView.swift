@@ -9,26 +9,33 @@
 import SwiftUI
 import AVFoundation
 
-class AudioPlayer: ObservableObject {
+class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 	var audioPlayer: AVAudioPlayer?
 	
 	func fetchAudio(audioFile: String) {
-		let path = Bundle.main.path(forResource: audioFile, ofType: nil)!
-		let url = URL(fileURLWithPath: path)
-		do {
-			audioPlayer = try AVAudioPlayer(contentsOf: url)
-			DispatchQueue.global(qos: .background).async {
-				self.audioPlayer?.prepareToPlay()
+		if(!(audioFile == "")) {
+			let path = Bundle.main.path(forResource: audioFile, ofType: nil)!
+			let url = URL(fileURLWithPath: path)
+			do {
+				audioPlayer = try AVAudioPlayer(contentsOf: url)
+				audioPlayer!.delegate = self
+				DispatchQueue.global(qos: .background).async {
+					self.audioPlayer?.prepareToPlay()
+				}
+				//					audioPlayer().checkForFinish()
+				
+			} catch {
+				print("Problem with chooseSound()")
 			}
-			//					audioPlayer().checkForFinish()
-			
-		} catch {
-			print("Problem with chooseSound()")
 		}
 	}
 	
-	func playAudio(audioToPlay: AVAudioPlayer?) {
-		audioToPlay?.play()
+	func playAudio() {
+		audioPlayer?.play()
+	}
+	
+	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+		audioPlayer?.prepareToPlay()
 	}
 	
 	@objc func playerDidFinishPlaying(note: NSNotification) {
@@ -43,8 +50,7 @@ struct choiceButton: View {
 	@State private var sounds: [String] = ["", "", ""]
 	@State private var correctAnswer: Int = 0
 	@State private var showSoundButton: Bool = false
-	@State private var audioPlayerClass: AVAudioPlayer?
-//	@State private var koreanWordSound: AVAudioPlayer?
+	@State var audioPlayerClass: AudioPlayer = AudioPlayer()
 	/**
 	True:
 	The label is in korean and the button are in english
@@ -69,22 +75,20 @@ struct choiceButton: View {
 	func prepareSound() {
 		if(!koreanOrEnglish) {
 			if(!(sounds[correctAnswer] == "")) {
-				showSoundButton.toggle()
+				showSoundButton = true
 				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "[sound:", with: "")
 				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "]", with: "")
 				let soundFile = sounds[correctAnswer]
-				let fetchAudio = AudioPlayer()
-				fetchAudio.fetchAudio(audioFile: soundFile)
-				audioPlayerClass = fetchAudio.audioPlayer
+				audioPlayerClass.fetchAudio(audioFile: soundFile)
 			} else {
 				showSoundButton = false
+				audioPlayerClass.fetchAudio(audioFile: "")
 			}
 		}
 	}
 	
 	func playSound() {
-		//		NotificationCenter.default.addObserver(self, selector: #selector(audioPlayer.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-		AudioPlayer().playAudio(audioToPlay: audioPlayerClass)
+		audioPlayerClass.playAudio()
 	}
 	
 	/// This function resets the view to a new word
@@ -106,8 +110,7 @@ struct choiceButton: View {
 		var englishWordsArray: [String] = []
 		var soundsArray: [String] = []
 		for _ in 0...2 {
-			// 0 is for debugging
-			let randomNumberArray = 0 // Int.random(in: 0..<arrayWordCount)
+			let randomNumberArray = Int.random(in: 0..<arrayWordCount)
 			koreanWordsArray.append(wordArrays[randomNumberArray].fields[0])
 			englishWordsArray.append(wordArrays[randomNumberArray].fields[1])
 			soundsArray.append(wordArrays[randomNumberArray].fields[3])
@@ -125,7 +128,7 @@ struct choiceButton: View {
 		koreanTemp.append(englishWordsArray)
 		koreanAndEnglishWordsArray = koreanTemp
 		stringFormater()
-		correctAnswer = 0 // Int.random(in: 0...2)
+		correctAnswer = Int.random(in: 0...2)
 	}
 	
 	/// This function will return a string.
@@ -161,6 +164,8 @@ struct choiceButton: View {
 				}) {
 					Image(systemName: "play.fill")
 				}
+				.isHidden(!showSoundButton)
+				.disabled(!showSoundButton)
 			}
 			
 			// 3 buttons to choose the correct answer
@@ -184,7 +189,6 @@ struct choiceButton: View {
 		}
 	}
 }
-
 
 /// Reusable view for buttons to choose the answer from, the background color is customizable
 struct buttonProperties: ViewModifier {

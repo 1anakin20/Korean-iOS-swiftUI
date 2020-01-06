@@ -244,7 +244,6 @@ struct OptionsNumbers: View {
 }
 
 
-
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
 		squareNavigationLink()
