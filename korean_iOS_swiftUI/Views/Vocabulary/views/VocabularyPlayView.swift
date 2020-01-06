@@ -53,7 +53,7 @@ struct VocabularyPlayView: View {
 	False:
 	The label is in English and the buttons in Korean
 	**/
-	var koreanOrEnglish: Bool = false
+	@State var koreanOrEnglish: Bool = false
 	
 	/// This string formater function will remove the <div> and </divs> tags
 	func stringFormater() {
@@ -152,6 +152,14 @@ struct VocabularyPlayView: View {
 	
 	var body: some View {
 		VStack(spacing: 10) {
+			Toggle(isOn: $koreanOrEnglish) {
+				if koreanOrEnglish {
+					Text("English")
+				} else {
+					Text("Korean")
+				}
+			}.padding()
+			Spacer()
 			HStack {
 				// Korean or English word label
 				Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
@@ -194,6 +202,7 @@ struct VocabularyPlayView: View {
 			} else {
 				EmptyView()
 			}
+			Spacer()
 		}.onAppear {
 			self.resetView()
 		}
