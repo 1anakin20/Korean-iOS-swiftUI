@@ -771,7 +771,6 @@
 		B3E351DD2358D4AC00A3F4F6 /* playMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351DC2358D4AC00A3F4F6 /* playMenu.swift */; };
 		B3E351DF2358D5DC00A3F4F6 /* SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */; };
 		B3E351E12358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */; };
-		B3FC4EBB23A7FE5D00A52C28 /* VocabularyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC4EBA23A7FE5D00A52C28 /* VocabularyMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1561,7 +1560,6 @@
 		B3E351DC2358D4AC00A3F4F6 /* playMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playMenu.swift; sourceTree = "<group>"; };
 		B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViews.swift; sourceTree = "<group>"; };
 		B3E351E02358ED9700A3F4F6 /* SinoNumberToKoreanPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinoNumberToKoreanPlay.swift; sourceTree = "<group>"; };
-		B3FC4EBA23A7FE5D00A52C28 /* VocabularyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2503,7 +2501,6 @@
 		B3FC4EB823A7FE3700A52C28 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				B3FC4EBA23A7FE5D00A52C28 /* VocabularyMenu.swift */,
 				B378323423A7FEF60001B424 /* VocabularyPlayView.swift */,
 			);
 			path = views;
@@ -3377,7 +3374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3FC4EBB23A7FE5D00A52C28 /* VocabularyMenu.swift in Sources */,
 				B383912E235F7154005EE147 /* sinoOptions.swift in Sources */,
 				B38F67F62369FB4C0092C26B /* viewFunctions.swift in Sources */,
 				B37BDC4B23A4657200532835 /* NativeNumbersCreatorFunctions.swift in Sources */,

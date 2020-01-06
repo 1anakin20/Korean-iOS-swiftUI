@@ -163,7 +163,7 @@ struct VocabularyPlayView: View {
 			HStack {
 				// Korean or English word label
 				Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
-					.font(.system(size: 28))
+					.font(.system(size: 24))
 				Button(action: {
 					self.playSound()
 				}) {
