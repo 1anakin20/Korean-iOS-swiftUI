@@ -747,6 +747,7 @@
 		B369CEB423AAA03200464168 /* Korean_Vocabulary shorter.json in Resources */ = {isa = PBXBuildFile; fileRef = B369CEB323AAA03200464168 /* Korean_Vocabulary shorter.json */; };
 		B369CEB623AAA11900464168 /* Korean_Vocabulary shorter.json in Resources */ = {isa = PBXBuildFile; fileRef = B369CEB323AAA03200464168 /* Korean_Vocabulary shorter.json */; };
 		B369CEB723AAA11A00464168 /* Korean_Vocabulary shorter.json in Resources */ = {isa = PBXBuildFile; fileRef = B369CEB323AAA03200464168 /* Korean_Vocabulary shorter.json */; };
+		B36E302323C3E7040006A84A /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E302223C3E7040006A84A /* DictionaryView.swift */; };
 		B37449DF23A5DFE40084961C /* nativeNumberToKoreanPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37449DE23A5DFE40084961C /* nativeNumberToKoreanPlay.swift */; };
 		B37449E123A5E23D0084961C /* NativeKoreanToNumberPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37449E023A5E23D0084961C /* NativeKoreanToNumberPlay.swift */; };
 		B37449E323A5E65B0084961C /* nativeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37449E223A5E65B0084961C /* nativeOptions.swift */; };
@@ -1529,6 +1530,7 @@
 		B369CBCF23A9644500464168 /* movie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie.mp3; sourceTree = "<group>"; };
 		B369CEAE23A964D400464168 /* jsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jsonParser.swift; sourceTree = "<group>"; };
 		B369CEB323AAA03200464168 /* Korean_Vocabulary shorter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Korean_Vocabulary shorter.json"; sourceTree = "<group>"; };
+		B36E302223C3E7040006A84A /* DictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		B37449DE23A5DFE40084961C /* nativeNumberToKoreanPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeNumberToKoreanPlay.swift; sourceTree = "<group>"; };
 		B37449E023A5E23D0084961C /* NativeKoreanToNumberPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeKoreanToNumberPlay.swift; sourceTree = "<group>"; };
 		B37449E223A5E65B0084961C /* nativeOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nativeOptions.swift; sourceTree = "<group>"; };
@@ -2346,6 +2348,14 @@
 			path = media;
 			sourceTree = "<group>";
 		};
+		B36E302123C3E6E80006A84A /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				B36E302223C3E7040006A84A /* DictionaryView.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
 		B37BDC4923A4654200532835 /* NativeNumbers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2409,12 +2419,14 @@
 		B3E03DC6239598F900079D19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B369C8EE23A963FF00464168 /* Korean vocabulary */,
 				B3E351B023578B4500A3F4F6 /* ContentView.swift */,
 				B3E351DC2358D4AC00A3F4F6 /* playMenu.swift */,
 				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
 				B3362BCC2399C26800BCAA70 /* images.swift */,
 				B30C684723C02E4C00604647 /* Numbers */,
 				B3FC4EB623A7FE1400A52C28 /* Vocabulary */,
+				B36E302123C3E6E80006A84A /* Dictionary */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2485,7 +2497,6 @@
 			children = (
 				B3FC4EB823A7FE3700A52C28 /* views */,
 				B3FC4EB723A7FE2400A52C28 /* code */,
-				B369C8EE23A963FF00464168 /* Korean vocabulary */,
 			);
 			path = Vocabulary;
 			sourceTree = "<group>";
@@ -3391,6 +3402,7 @@
 				B37BDC5023A46AAE00532835 /* nativeSharedView.swift in Sources */,
 				B37BDC5923A4A1C700532835 /* NativePlayMenu.swift in Sources */,
 				B37BDC5523A46F4300532835 /* sinoSharedView.swift in Sources */,
+				B36E302323C3E7040006A84A /* DictionaryView.swift in Sources */,
 				B378323523A7FEF60001B424 /* VocabularyPlayView.swift in Sources */,
 				B395C8E123A407EB00346677 /* SinoPlayMenu.swift in Sources */,
 				B3362BCF2399FA2B00BCAA70 /* SinoKoreanToNumberPlay.swift in Sources */,
