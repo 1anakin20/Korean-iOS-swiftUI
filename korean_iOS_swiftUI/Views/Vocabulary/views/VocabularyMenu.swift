@@ -13,7 +13,7 @@ import SwiftUI
 struct VocabularyMenu: View {
 	var body: some View {
 		VStack {
-			longNavigationLink(backgroundColor: .green, text: "English to Korean", destination: AnyView(choiceButton(koreanOrEnglish: false)))
+			longNavigationLink(backgroundColor: .green, text: "English to Korean", destination: AnyView(VocabularyPlayView(koreanOrEnglish: false)))
 		}
 	}
 }

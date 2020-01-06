@@ -37,13 +37,9 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
 		audioPlayer?.prepareToPlay()
 	}
-	
-	@objc func playerDidFinishPlaying(note: NSNotification) {
-		print("Video Finished")
-	}
 }
 
-struct choiceButton: View {
+struct VocabularyPlayView: View {
 	@State private var buttonBackgroundColors: [Color] = [.gray, .gray, .gray]
 	@State private var continueButton: Bool = true
 	@State private var koreanAndEnglishWordsArray: [[String]] = [["", "", ""], ["", "", ""]]
@@ -159,13 +155,18 @@ struct choiceButton: View {
 			HStack {
 				// Korean or English word label
 				Text(!koreanOrEnglish ? self.koreanAndEnglishWordsArray[0][correctAnswer] : self.koreanAndEnglishWordsArray[1][correctAnswer])
+					.font(.system(size: 28))
 				Button(action: {
 					self.playSound()
 				}) {
-					Image(systemName: "play.fill")
+					if showSoundButton {
+						Image(systemName: "speaker.3.fill")
+							.resizable()
+							.frame(width: 28, height: 28)
+					} else {
+						EmptyView()
+					}
 				}
-				.isHidden(!showSoundButton)
-				.disabled(!showSoundButton)
 			}
 			
 			// 3 buttons to choose the correct answer
@@ -177,13 +178,22 @@ struct choiceButton: View {
 						.modifier(buttonProperties(backgroundColor: self.$buttonBackgroundColors[number]))
 				}
 			}.disabled(continueButton)
-			
 			// Continue button
-			Button(action: {
-				self.resetView()
-			}) {
-				Text("Continue")
-			}.disabled(!continueButton)
+			if continueButton {
+				Button(action: {
+					self.resetView()
+				}) {
+					Text("Continue")
+						.foregroundColor(.white)
+						.frame(width: 300, height: 65)
+						.background(Color.blue)
+						.cornerRadius(10)
+						.shadow(radius: 3, x: 0, y: 3)
+				}
+				.disabled(!continueButton)
+			} else {
+				EmptyView()
+			}
 		}.onAppear {
 			self.resetView()
 		}
@@ -205,6 +215,6 @@ struct buttonProperties: ViewModifier {
 
 struct VocabularyEnglishToKorean_Previews: PreviewProvider {
 	static var previews: some View {
-		choiceButton(koreanOrEnglish: false)
+		VocabularyPlayView(koreanOrEnglish: false)
 	}
 }
