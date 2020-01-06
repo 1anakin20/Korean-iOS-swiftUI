@@ -9,9 +9,11 @@
 import SwiftUI
 import AVFoundation
 
+/// This class manages the audio player
 class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 	var audioPlayer: AVAudioPlayer?
 	
+	/// This function makes sure the audio file is not an empty string and gets the audio ready to play
 	func fetchAudio(audioFile: String) {
 		if(!(audioFile == "")) {
 			let path = Bundle.main.path(forResource: audioFile, ofType: nil)!
@@ -30,22 +32,38 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 		}
 	}
 	
+	/// This function is used to play the audio
 	func playAudio() {
 		audioPlayer?.play()
 	}
 	
+	/// It will get the audio ready to be replayed after it finishes
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
 		audioPlayer?.prepareToPlay()
 	}
 }
 
+/// The play view of the vocabulary feature, it will show a word in Korean or English and the user will choose between 3 buttons
 struct VocabularyPlayView: View {
+	// The background color of the 3 buttons
 	@State private var buttonBackgroundColors: [Color] = [.gray, .gray, .gray]
+	// If the contintinue buttons is displayed
 	@State private var continueButton: Bool = true
+	/*
+	Array of words
+	koreanAndEnglishWordsArray[
+	0: [String] <- Korean words at index 0
+	1: [String] <- English words at index 1
+	]
+	*/
 	@State private var koreanAndEnglishWordsArray: [[String]] = [["", "", ""], ["", "", ""]]
+	// Array of the sounds of the Korean words
 	@State private var sounds: [String] = ["", "", ""]
+	// The correct button for the displayed word
 	@State private var correctAnswer: Int = 0
+	// If the sound for a Korean word is avaible
 	@State private var showSoundButton: Bool = false
+	// Object of the AudioPlayer() class which manages the audio player
 	@State var audioPlayerClass: AudioPlayer = AudioPlayer()
 	/**
 	True:
@@ -69,7 +87,9 @@ struct VocabularyPlayView: View {
 	
 	/// This function will get the sound of the corresponding Korean word in the label to play
 	func prepareSound() {
+		// If it's on Korean words
 		if(!koreanOrEnglish) {
+			// If there is an avible sound
 			if(!(sounds[correctAnswer] == "")) {
 				showSoundButton = true
 				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "[sound:", with: "")
@@ -77,12 +97,13 @@ struct VocabularyPlayView: View {
 				let soundFile = sounds[correctAnswer]
 				audioPlayerClass.fetchAudio(audioFile: soundFile)
 			} else {
+				// No avaible sound
 				showSoundButton = false
-				audioPlayerClass.fetchAudio(audioFile: "")
 			}
 		}
 	}
 	
+	/// Play the sound
 	func playSound() {
 		audioPlayerClass.playAudio()
 	}
@@ -111,14 +132,9 @@ struct VocabularyPlayView: View {
 			englishWordsArray.append(wordArrays[randomNumberArray].fields[1])
 			soundsArray.append(wordArrays[randomNumberArray].fields[3])
 		}
+		
 		sounds = soundsArray
-		// 2D array that contains the koreanWords
-		/*
-		koreanAndEnglishWordsArray[
-		0: [String] <- Korean words at index 0
-		1: [String] <- English words at index 1
-		]
-		*/
+		// 2D temporal array that contains the koreanWords
 		var koreanTemp: [[String]] = []
 		koreanTemp.append(koreanWordsArray)
 		koreanTemp.append(englishWordsArray)
@@ -152,6 +168,7 @@ struct VocabularyPlayView: View {
 	
 	var body: some View {
 		VStack(spacing: 10) {
+			// Toggle for switching between Korean and English words
 			Toggle(isOn: $koreanOrEnglish) {
 				if koreanOrEnglish {
 					Text("English")
@@ -186,6 +203,7 @@ struct VocabularyPlayView: View {
 						.modifier(buttonProperties(backgroundColor: self.$buttonBackgroundColors[number]))
 				}
 			}.disabled(continueButton)
+			
 			// Continue button
 			if continueButton {
 				Button(action: {
@@ -198,7 +216,6 @@ struct VocabularyPlayView: View {
 						.cornerRadius(10)
 						.shadow(radius: 3, x: 0, y: 3)
 				}
-				.disabled(!continueButton)
 			} else {
 				EmptyView()
 			}
