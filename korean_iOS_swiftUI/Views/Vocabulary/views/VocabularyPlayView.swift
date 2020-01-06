@@ -9,10 +9,26 @@
 import SwiftUI
 import AVFoundation
 
-class audioPlayer: ObservableObject {
+class AudioPlayer: ObservableObject {
+	var audioPlayer: AVAudioPlayer?
 	
-	func checkForFinish() {
-		
+	func fetchAudio(audioFile: String) {
+		let path = Bundle.main.path(forResource: audioFile, ofType: nil)!
+		let url = URL(fileURLWithPath: path)
+		do {
+			audioPlayer = try AVAudioPlayer(contentsOf: url)
+			DispatchQueue.global(qos: .background).async {
+				self.audioPlayer?.prepareToPlay()
+			}
+			//					audioPlayer().checkForFinish()
+			
+		} catch {
+			print("Problem with chooseSound()")
+		}
+	}
+	
+	func playAudio(audioToPlay: AVAudioPlayer?) {
+		audioToPlay?.play()
 	}
 	
 	@objc func playerDidFinishPlaying(note: NSNotification) {
@@ -27,7 +43,8 @@ struct choiceButton: View {
 	@State private var sounds: [String] = ["", "", ""]
 	@State private var correctAnswer: Int = 0
 	@State private var showSoundButton: Bool = false
-	@State private var koreanWordSound: AVAudioPlayer?
+	@State private var audioPlayerClass: AVAudioPlayer?
+//	@State private var koreanWordSound: AVAudioPlayer?
 	/**
 	True:
 	The label is in korean and the button are in english
@@ -56,25 +73,18 @@ struct choiceButton: View {
 				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "[sound:", with: "")
 				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "]", with: "")
 				let soundFile = sounds[correctAnswer]
-				let path = Bundle.main.path(forResource: soundFile, ofType: nil)!
-				let url = URL(fileURLWithPath: path)
-				do {
-					koreanWordSound = try AVAudioPlayer(contentsOf: url)
-					DispatchQueue.global().async {
-						self.koreanWordSound?.prepareToPlay()
-					}
-					//					audioPlayer().checkForFinish()
-					
-				} catch {
-					print("Problem with chooseSound()")
-				}
+				let fetchAudio = AudioPlayer()
+				fetchAudio.fetchAudio(audioFile: soundFile)
+				audioPlayerClass = fetchAudio.audioPlayer
+			} else {
+				showSoundButton = false
 			}
 		}
 	}
 	
 	func playSound() {
 		//		NotificationCenter.default.addObserver(self, selector: #selector(audioPlayer.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-			self.koreanWordSound?.play()
+		AudioPlayer().playAudio(audioToPlay: audioPlayerClass)
 	}
 	
 	/// This function resets the view to a new word
