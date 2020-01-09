@@ -24,11 +24,11 @@ struct DictionaryRow: View {
 	var body: some View {
 		VStack {
 			HStack {
-				Text(dictionaryRow.fields[0])
+				Text(stringFormater(stringToFormat: dictionaryRow.fields[0]))
 				Spacer()
 			}
 			HStack {
-				Text(dictionaryRow.fields[1])
+				Text(stringFormater(stringToFormat: dictionaryRow.fields[1]))
 				Spacer()
 			}
 		}.padding()
