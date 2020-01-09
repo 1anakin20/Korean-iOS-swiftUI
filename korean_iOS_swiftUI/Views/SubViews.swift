@@ -243,6 +243,15 @@ struct OptionsNumbers: View {
 	}
 }
 
+/// This string formater function will remove the <div> and </divs> tags
+func stringFormater(stringToFormat: String) -> String {
+	var formatedString = stringToFormat
+	formatedString = formatedString.replacingOccurrences(of: "<div>", with: " ")
+	formatedString = formatedString.replacingOccurrences(of: "</div>", with: " ")
+	return formatedString
+	
+}
+
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
 		squareNavigationLink()

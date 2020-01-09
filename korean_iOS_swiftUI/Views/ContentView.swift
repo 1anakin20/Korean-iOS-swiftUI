@@ -26,8 +26,8 @@ struct ContentView: View {
 			DictionaryView()
 				.tabItem {
 					VStack {
-						Image("second")
-						Text("Second")
+						Image(systemName: "book")
+						Text("Dictionary")
 					}
 			}
 			.tag(1)

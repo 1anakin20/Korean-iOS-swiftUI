@@ -73,14 +73,11 @@ struct VocabularyPlayView: View {
 	**/
 	@State var koreanOrEnglish: Bool = false
 	
-	/// This string formater function will remove the <div> and </divs> tags
-	func stringFormater() {
+	/// This function will format the all words in the array
+	func vocabularyStringFormater() {
 		for firstRowIndex in 0..<koreanAndEnglishWordsArray.count {
 			for secondRowIndex in 0..<koreanAndEnglishWordsArray[firstRowIndex].count {
-				// Remove the "<div>"
-				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] = koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex].replacingOccurrences(of: "<div>", with: " ")
-				// Remove the "</div>"
-				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] = koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex].replacingOccurrences(of: "</div>", with: " ")
+				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] =  stringFormater(stringToFormat: koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex])
 			}
 		}
 	}
@@ -127,7 +124,7 @@ struct VocabularyPlayView: View {
 		var englishWordsArray: [String] = []
 		var soundsArray: [String] = []
 		for _ in 0...2 {
-			let randomNumberArray = Int.random(in: 0..<arrayWordCount)
+			let randomNumberArray = 1 // Int.random(in: 0..<arrayWordCount)
 			koreanWordsArray.append(wordArrays[randomNumberArray].fields[0])
 			englishWordsArray.append(wordArrays[randomNumberArray].fields[1])
 			soundsArray.append(wordArrays[randomNumberArray].fields[3])
@@ -139,7 +136,7 @@ struct VocabularyPlayView: View {
 		koreanTemp.append(koreanWordsArray)
 		koreanTemp.append(englishWordsArray)
 		koreanAndEnglishWordsArray = koreanTemp
-		stringFormater()
+		vocabularyStringFormater()
 		correctAnswer = Int.random(in: 0...2)
 	}
 	
