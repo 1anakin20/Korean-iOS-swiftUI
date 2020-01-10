@@ -27,7 +27,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 				//					audioPlayer().checkForFinish()
 				
 			} catch {
-				print("Problem with chooseSound()")
+				print("Problem with chooseSound(): \(error)")
 			}
 		}
 	}
@@ -73,14 +73,11 @@ struct VocabularyPlayView: View {
 	**/
 	@State var koreanOrEnglish: Bool = false
 	
-	/// This string formater function will remove the <div> and </divs> tags
-	func stringFormater() {
+	/// This function will format the all words in the array
+	func vocabularyStringFormater() {
 		for firstRowIndex in 0..<koreanAndEnglishWordsArray.count {
 			for secondRowIndex in 0..<koreanAndEnglishWordsArray[firstRowIndex].count {
-				// Remove the "<div>"
-				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] = koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex].replacingOccurrences(of: "<div>", with: " ")
-				// Remove the "</div>"
-				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] = koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex].replacingOccurrences(of: "</div>", with: " ")
+				koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex] =  stringFormater(stringToFormat: koreanAndEnglishWordsArray[firstRowIndex][secondRowIndex])
 			}
 		}
 	}
@@ -92,8 +89,8 @@ struct VocabularyPlayView: View {
 			// If there is an avible sound
 			if(!(sounds[correctAnswer] == "")) {
 				showSoundButton = true
-				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "[sound:", with: "")
-				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "]", with: "")
+				
+				sounds[correctAnswer] = soundStringFormater(stringToFormat: sounds[correctAnswer])
 				let soundFile = sounds[correctAnswer]
 				audioPlayerClass.fetchAudio(audioFile: soundFile)
 			} else {
@@ -139,7 +136,7 @@ struct VocabularyPlayView: View {
 		koreanTemp.append(koreanWordsArray)
 		koreanTemp.append(englishWordsArray)
 		koreanAndEnglishWordsArray = koreanTemp
-		stringFormater()
+		vocabularyStringFormater()
 		correctAnswer = Int.random(in: 0...2)
 	}
 	

@@ -243,6 +243,22 @@ struct OptionsNumbers: View {
 	}
 }
 
+/// This string formater function will remove the <div> and </divs> tags
+func stringFormater(stringToFormat: String) -> String {
+	var formatedString = stringToFormat
+	formatedString = formatedString.replacingOccurrences(of: "<div>", with: " ")
+	formatedString = formatedString.replacingOccurrences(of: "</div>", with: " ")
+	return formatedString
+}
+
+/// This function will format the string from the Korean_Vocabulary json file to a redeable string for AVAudioPlayer
+func soundStringFormater(stringToFormat: String) -> String {
+	var formatedString = stringToFormat
+	formatedString = formatedString.replacingOccurrences(of: "[sound:", with: "")
+	formatedString = formatedString.replacingOccurrences(of: "]", with: "")
+	return formatedString
+}
+
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
 		squareNavigationLink()

@@ -8,7 +8,8 @@
 
 import UIKit
 
-struct koreanWordsJson: Codable {
+struct koreanWordsJson: Codable, Identifiable {
+	let id = UUID()
 	let fields: [String]
 }
 
