@@ -42,6 +42,13 @@ There are all the Korean words with their english meaning that will appear in th
 ## Tested with
 * Simulator Iphone 11
 
+## Bugs
+This application has known bugs, I will not document them thoroughly but here is a sumary:
+* Cannot reenter view after going back such as navigation links in the Play menu
+* The audio playback crashes sometimes and takes some time to play when the button is clicked (hint: maybe it has something to do with threads?)
+* The Korean native numbers don't go above 100, if there is a random generate number above 100 because the user set the options to something larger than 100
+* Cannot close the option view in macOS
+
 ## Authors
 
 * Tomas Daniel Nieto
