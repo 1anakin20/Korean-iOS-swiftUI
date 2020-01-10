@@ -27,7 +27,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 				//					audioPlayer().checkForFinish()
 				
 			} catch {
-				print("Problem with chooseSound()")
+				print("Problem with chooseSound(): \(error)")
 			}
 		}
 	}
@@ -89,8 +89,8 @@ struct VocabularyPlayView: View {
 			// If there is an avible sound
 			if(!(sounds[correctAnswer] == "")) {
 				showSoundButton = true
-				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "[sound:", with: "")
-				sounds[correctAnswer] = sounds[correctAnswer].replacingOccurrences(of: "]", with: "")
+				
+				sounds[correctAnswer] = soundStringFormater(stringToFormat: sounds[correctAnswer])
 				let soundFile = sounds[correctAnswer]
 				audioPlayerClass.fetchAudio(audioFile: soundFile)
 			} else {
@@ -124,7 +124,7 @@ struct VocabularyPlayView: View {
 		var englishWordsArray: [String] = []
 		var soundsArray: [String] = []
 		for _ in 0...2 {
-			let randomNumberArray = 1 // Int.random(in: 0..<arrayWordCount)
+			let randomNumberArray = Int.random(in: 0..<arrayWordCount)
 			koreanWordsArray.append(wordArrays[randomNumberArray].fields[0])
 			englishWordsArray.append(wordArrays[randomNumberArray].fields[1])
 			soundsArray.append(wordArrays[randomNumberArray].fields[3])

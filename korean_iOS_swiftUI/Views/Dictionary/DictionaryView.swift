@@ -20,12 +20,23 @@ struct DictionaryView: View {
 
 struct DictionaryRow: View {
 	var dictionaryRow: koreanWordsJson
+	var playSound = AudioPlayer()
 	
 	var body: some View {
 		VStack {
 			HStack {
 				Text(stringFormater(stringToFormat: dictionaryRow.fields[0]))
 				Spacer()
+				if(dictionaryRow.fields[3] != "") {
+					Button(action: {
+						self.playSound.fetchAudio(audioFile: soundStringFormater(stringToFormat: self.dictionaryRow.fields[3]))
+						self.playSound.playAudio()
+					}) {
+						Image(systemName: "speaker.3.fill")
+					}
+				} else {
+					EmptyView()
+				}
 			}
 			HStack {
 				Text(stringFormater(stringToFormat: dictionaryRow.fields[1]))
