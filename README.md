@@ -60,7 +60,7 @@ The idea of this application came from the best person in the entire universe. H
 ## Final note
 It all started when I was learning Korean numbers. As I figured out the logic, I created a program for the terminal to help me memorize them easily (link to the github repo: https://github.com/1anakin20/Korean). As we were in the English class watching some oral presentations, Sarah (aka The best person in the entire universe) told me the idea of making it for iOS. I started working on it, then created it with the UIKit framework (link to the github repo: https://github.com/1anakin20/korean-ios). After, Apple introduced the SwiftUI framework. I recreated the app with it. Then decided to go an extra Kilometer (or mile for the Americans) and added the Vocabulary feature. The amazing idea to recreate a simple project made me learn a lot of things. Such as git, iOS developement, and more. 
 
-In conclusion, I just created the app, most of the work was done by Sarah. An idea created this.
+In conclusion, I just created the app, most of the work was done by Sarah. I didn't create this, an idea did.
 
 9/1/2020
 
