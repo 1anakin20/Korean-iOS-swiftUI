@@ -73,7 +73,8 @@ struct nativePlayView: View {
 			displayedImageName = images.correctImage()
 		} else {
 			acceptButtonView = AnyView(wrongAnswerButton(action: checkForContinue))
-			let correctAnswer = koreanOrNumber ? String(randomNumber!) : sinoKoNumber(randNumber: randomNumber!)
+			let correctAnswer = koreanOrNumber ? String(randomNumber!) :
+			nativeTranslationKorean(randNumber: randomNumber!)
 			number = "The good answer for \(number) was \(correctAnswer)"
 			textColor = .red
 			displayedImageName = images.incorrectImage()
@@ -100,6 +101,6 @@ struct nativePlayView: View {
 
 struct NumberToKorean_Previews: PreviewProvider {
 	static var previews: some View {
-		nativePlayView(koreanOrNumber: true)
+		nativePlayView(koreanOrNumber: false)
 	}
 }
