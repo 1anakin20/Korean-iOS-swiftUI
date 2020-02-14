@@ -261,6 +261,6 @@ func soundStringFormater(stringToFormat: String) -> String {
 
 struct SubViews_Previews: PreviewProvider {
 	static var previews: some View {
-		squareNavigationLink()
+		Text("Hello world")
 	}
 }

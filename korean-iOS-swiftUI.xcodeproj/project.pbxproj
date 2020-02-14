@@ -2419,12 +2419,12 @@
 		B3E03DC6239598F900079D19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B369C8EE23A963FF00464168 /* Korean vocabulary */,
 				B3E351B023578B4500A3F4F6 /* ContentView.swift */,
 				B3E351DC2358D4AC00A3F4F6 /* playMenu.swift */,
 				B3E351DE2358D5DC00A3F4F6 /* SubViews.swift */,
 				B3362BCC2399C26800BCAA70 /* images.swift */,
 				B30C684723C02E4C00604647 /* Numbers */,
+				B369C8EE23A963FF00464168 /* Korean vocabulary */,
 				B3FC4EB623A7FE1400A52C28 /* Vocabulary */,
 				B36E302123C3E6E80006A84A /* Dictionary */,
 			);
@@ -3573,6 +3573,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = korean_iOS_swiftUI/korean_iOS_swiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"korean_iOS_swiftUI/Preview Content\"";
@@ -3585,6 +3587,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "me.korean-iOS-swiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3596,6 +3600,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = korean_iOS_swiftUI/korean_iOS_swiftUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"korean_iOS_swiftUI/Preview Content\"";
@@ -3608,6 +3614,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "me.korean-iOS-swiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
