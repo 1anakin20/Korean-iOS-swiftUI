@@ -19,8 +19,6 @@ The user will be presented a random word in Korean or English and it needs to ta
 ### Dictionary
 There are all the Korean words with their english meaning that will appear in the Vocabulary category. If there is a sound disponible there will be a speaker button that will appear.
 
-*The truth will not always appear first*
-
 ## Getting Started
 
 1. Clone this github repo
@@ -48,27 +46,3 @@ This application has known bugs, I will not document them thoroughly but here is
 * The audio playback crashes sometimes and takes some time to play when the button is clicked (hint: maybe it has something to do with threads?)
 * The Korean native numbers don't go above 100, if there is a random generate number above 100 because the user set the options to something larger than 100
 * Cannot close the option view in macOS
-
-## Authors
-
-* Tomas Daniel Nieto
-
-## License
-
-This project has no license avaible yet, as there are no plans to publish the source code.
-All rights reserve to Tomas Daniel Nieto.
-
-## Acknowledgments
-
-Some of the code here was taken from the internet, from various sources such as Github, StackOverflow, and others.
-
-The idea of this application came from the best person in the entire universe. Huge thanks to Sarah, without her idea this application would have never been made.
-
-## Final note
-It all started when I was learning Korean numbers. As I figured out the logic, I created a program for the terminal to help me memorize them easily (link to the github repo: https://github.com/1anakin20/Korean). As we were in the English class watching some oral presentations, Sarah (aka The best person in the entire universe) told me the idea of making it for iOS. I started working on it, then created it with the UIKit framework (link to the github repo: https://github.com/1anakin20/korean-ios). After, Apple introduced the SwiftUI framework. I recreated the app with it. Then decided to go an extra Kilometer (or mile for the Americans) and added the Vocabulary feature. The amazing idea to recreate a simple project made me learn a lot of things. Such as git, iOS developement, and more. 
-
-In conclusion, I just created the app, most of the work was done by Sarah. I didn't create this, an idea did.
-
-9/1/2020
-
-Tomas Daniel Nieto
